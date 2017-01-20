@@ -13,12 +13,12 @@ public class EventManager : MonoBehaviour {
         PEARL_HARBOR
     }
 
-    float timerbetweenEvent = 30.0f;
+    float timerBetweenEvent = 30.0f;
 
     // Use this for initialization
     void Start () {
 
-        InvokeRepeating("EventGenerator", 30.0f, timerbetweenEvent);
+        InvokeRepeating("EventGenerator", 30.0f, timerBetweenEvent);
         
     }
 	
@@ -30,10 +30,10 @@ public class EventManager : MonoBehaviour {
 
     void EventGenerator()
     {
-        timerbetweenEvent -= 5.0f;
-        Debug.Log("EVENT GENERATOR");
+        timerBetweenEvent -= 5.0f;
+        //Debug.Log("EVENT GENERATOR");
         int eventToLaunch = UnityEngine.Random.Range(0, Enum.GetNames(typeof(EventType)).Length);
-        Debug.Log(eventToLaunch);
+        //Debug.Log(eventToLaunch);
         switch (eventToLaunch)
         {
             case 0:
