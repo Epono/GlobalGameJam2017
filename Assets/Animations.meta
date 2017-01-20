@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations.meta
 guid: acce383e70ba72c49ab29d566f651b18
 folderAsset: yes
 timeCreated: 1484948999
+=======
+guid: 9584eff02be08a946818bd7143f5d585
+folderAsset: yes
+timeCreated: 1484947463
+>>>>>>> bf09200c39109c1c5eb55938aaf18551a8da3e3b:Assets/Audio/Musics.meta
 licenseType: Free
 DefaultImporter:
   userData: 
