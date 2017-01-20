@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
+    Camera camera;
+
+    [SerializeField]
 	GameObject obstacleIslePrefab;
 
 	[SerializeField]
@@ -31,8 +34,11 @@ public class GameManagerScript : MonoBehaviour
 
 	void Start ()
 	{
-		// Initialisation des listes
-		warships = new List<GameObject>();
+        // NE PAS SUPPRIMER
+        //camera.pixelRect = new Rect(Screen.width - 595, Screen.height - 655, 590, 590);
+
+        // Initialisation des listes
+        warships = new List<GameObject>();
 		obstacles = new List<ObstacleTemplateScript>();
 		pickUps = new List<GameObject>();
 
@@ -42,9 +48,9 @@ public class GameManagerScript : MonoBehaviour
 
 		// S'assurer que la somme fasse bien 1 -_- (ou proche au pire)
 		obstacleIsleProbability = 0.5f;
-		obstacleLightHouseProbability = 0.2f;
-		obstacleOilSlickProbability = 0.2f;
-		obstacleSchoolOfSharkProbability = 0.1f;
+		obstacleLightHouseProbability = 0.5f;
+		obstacleOilSlickProbability = 0.0f;
+		obstacleSchoolOfSharkProbability = 0.0f;
 
 		// Création des obstacles
 		for (int y = 0; y < mapSize.y; ++y)
@@ -56,8 +62,8 @@ public class GameManagerScript : MonoBehaviour
 				{
 					float obstacleType = Random.value;
 					float obstaclePositionX = Random.value * mapSize.x;
-					float obstaclePositionZ = Random.value * mapSize.y;
-					double obstacleSizeModifier = (Random.value - 0.5) / 10;
+					float obstaclePositionY = Random.value * mapSize.y;
+					double obstacleSizeModifier = 1 + (Random.value - 0.5) / 10;
 
 					GameObject obstaclePrefab;
 					if(obstacleType < obstacleIsleProbability) {
@@ -74,7 +80,8 @@ public class GameManagerScript : MonoBehaviour
 						obstaclePrefab = obstacleSchoolOfSharksPrefab;
 					}
 
-					GameObject go = Instantiate(obstaclePrefab, new Vector3(obstaclePositionX, -1, obstaclePositionZ), Random.rotation);
+					GameObject go = Instantiate(obstaclePrefab, new Vector3(obstaclePositionX, obstaclePositionY, 0), Quaternion.identity);
+                    go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, Random.value * 360);
 					go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), (float)(go.transform.localScale.z * obstacleSizeModifier));
 					ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
 
