@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4954959082988530}
   - component: {fileID: 212951227779923754}
+  - component: {fileID: 60809106730081178}
   m_Layer: 0
   m_Name: RocketSprite
   m_TagString: Untagged
@@ -65,11 +66,28 @@ Transform:
   m_GameObject: {fileID: 1170608066256956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4212536774540358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60809106730081178
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170608066256956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.5, y: 0.25}
+      - {x: 0, y: 0}
+      - {x: 0.25, y: 0.5}
 --- !u!114 &114731709013738830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c791d8ad13d4bd4419e472ea65272051, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
