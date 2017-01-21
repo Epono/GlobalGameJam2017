@@ -17,10 +17,15 @@ public class WarshipScript : MonoBehaviour
 		get { return _type; }
 		set	{ _type = value;}
 	}
+
 	private WarshipAttributes _attributes = new WarshipDefault();
+    
+    public WarshipAttributes getAttributes()
+    {
+        return _attributes;
+    }
 
-
-	public void Init(EWarshipType type)
+    public void Init(EWarshipType type)
 	{
 		_type = type;
 		switch( _type )

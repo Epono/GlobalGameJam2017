@@ -5,17 +5,29 @@ using UnityEngine;
 
 public class PlayerMovementScript : NetworkBehaviour
 {
+    [SerializeField]
+    private GameObject bulletPrefab;
 
-    public GameObject bulletPrefab;
-    public Transform bulletSpawn;
+    [SerializeField]
+    private Transform bulletSpawn;
 
-    Vector2 forward;
+    [SerializeField]
+    private WarshipScript script;
+
+    private WarshipAttributes attributes;
+
+    private Vector2 forward;
 
     public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
+    
+    void Start()
+    {
+        attributes = script.getAttributes();
+    }
 
     void Update()
     {
-        transform.Translate(0, MovementMagicNumber, 0);
+        transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
         if (!isLocalPlayer)
         {
             return;
@@ -32,7 +44,11 @@ public class PlayerMovementScript : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CmdFire(forward);
+            if (attributes.Ammunition > 0)
+            {
+                CmdFire(forward);
+                attributes.Ammunition--;
+            }
         }
     }
 

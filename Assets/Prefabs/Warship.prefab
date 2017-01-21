@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 114854295972432280}
   - component: {fileID: 114761813415268236}
   - component: {fileID: 114929304232546346}
-  - component: {fileID: 114104680037411030}
+  - component: {fileID: 114819696361663126}
   m_Layer: 0
   m_Name: Warship
   m_TagString: Untagged
@@ -234,21 +234,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114104680037411030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1669136723734410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733abdd892b570040894833882469e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
-    type: 2}
-  bulletSpawn: {fileID: 0}
-  MovementMagicNumber: 0.05
 --- !u!114 &114761813415268236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +266,21 @@ MonoBehaviour:
     i15: 89
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114819696361663126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733abdd892b570040894833882469e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
+    type: 2}
+  bulletSpawn: {fileID: 4310931813804578}
+  MovementMagicNumber: 0.05
 --- !u!114 &114854295972432280
 MonoBehaviour:
   m_ObjectHideFlags: 1
