@@ -134,7 +134,7 @@ Prefab:
         type: 2}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 1669136723734410, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+      objectReference: {fileID: 1242380427817638, guid: a6b05e95b3535ad459092ee41e7e1445,
         type: 2}
     - target: {fileID: 114252177934357246, guid: 24ce6652349e8f3408b49c9389d5ab42,
         type: 2}
@@ -145,34 +145,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &537017933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 537017934}
-  m_Layer: 0
-  m_Name: Warship
-  m_TagString: WARSHIP
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &537017934
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 537017933}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6580157, y: -8.525741, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1217881871
 Prefab:
   m_ObjectHideFlags: 0
