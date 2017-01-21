@@ -19,6 +19,9 @@ public class GameManagerScript : MonoBehaviour
 	[SerializeField]
 	GameObject obstacleSchoolOfSharksPrefab;
 
+    [SerializeField]
+    GameObject seaPrefab;
+
 	private Vector2 mapSize;
 	private float obstaclesDensity;
 	private float obstacleIsleProbability;
@@ -46,8 +49,10 @@ public class GameManagerScript : MonoBehaviour
 		mapSize = new Vector2(20, 20);
 		obstaclesDensity = 0.05f;
 
-		// S'assurer que la somme fasse bien 1 -_- (ou proche au pire)
-		obstacleIsleProbability = 0.5f;
+        GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);
+
+        // S'assurer que la somme fasse bien 1 -_- (ou proche au pire)
+        obstacleIsleProbability = 0.5f;
 		obstacleLightHouseProbability = 0.5f;
 		obstacleOilSlickProbability = 0.0f;
 		obstacleSchoolOfSharkProbability = 0.0f;
@@ -61,9 +66,17 @@ public class GameManagerScript : MonoBehaviour
 				if (spawnObstacle < obstaclesDensity)
 				{
 					float obstacleType = Random.value;
+
+                    // TODO: ne pas spawn juste à côté
 					float obstaclePositionX = Random.value * mapSize.x;
 					float obstaclePositionY = Random.value * mapSize.y;
-					double obstacleSizeModifier = 1 + (Random.value - 0.5) / 10;
+					double obstacleSizeModifier = 1 + ((Random.value - 0.5) / 1);
+
+                    // Vérifier si y'a pas autre chose pas loin
+				    foreach (ObstacleTemplateScript obstacle in obstacles)
+				    {
+				        
+				    }
 
 					GameObject obstaclePrefab;
 					if(obstacleType < obstacleIsleProbability) {
@@ -82,7 +95,7 @@ public class GameManagerScript : MonoBehaviour
 
 					GameObject go = Instantiate(obstaclePrefab, new Vector3(obstaclePositionX, obstaclePositionY, 0), Quaternion.identity);
                     go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, Random.value * 360);
-					go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), (float)(go.transform.localScale.z * obstacleSizeModifier));
+					go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
 					ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
 
 					obstacles.Add(ots);
@@ -97,6 +110,6 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update ()
 	{
-		
-	}
+
+    }
 }

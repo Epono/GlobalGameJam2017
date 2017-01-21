@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4418153928049292}
   - component: {fileID: 114416841352528216}
-  - component: {fileID: 212462135429187518}
   m_Layer: 0
   m_Name: GameManagerPrefab
   m_TagString: Untagged
@@ -52,38 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5278efae87eb2244ead3201ac535bd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212462135429187518
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780347301896434}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  camera: {fileID: 0}
+  obstacleIslePrefab: {fileID: 1547089813953212, guid: a4cf8e8b3dfcad74abd9d5105d2189ef,
+    type: 2}
+  obstacleLightHousePrefab: {fileID: 1413961830664490, guid: a695e9c6cb20cf5499e736b6d35e07e3,
+    type: 2}
+  obstacleOilSlickPrefab: {fileID: 1278985735554074, guid: d58d78cc8ac58ce4e90d5cb9dda30e4f,
+    type: 2}
+  obstacleSchoolOfSharksPrefab: {fileID: 1432202950878230, guid: 0cea85d364f9f224fb9c744110500661,
+    type: 2}
+  seaPrefab: {fileID: 1547915999492146, guid: 97b00d75206e1124185498b7dfaf18c3, type: 2}
