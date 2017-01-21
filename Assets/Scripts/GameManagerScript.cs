@@ -24,7 +24,10 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     GameObject seaPrefab;
 
-	private Vector2 mapSize;
+    [SerializeField]
+    List<Sprite> sprites;
+
+    private Vector2 mapSize;
 	private float obstaclesDensity;
 	private float obstacleIsleProbability;
 	private float obstacleLightHouseProbability;
@@ -54,8 +57,8 @@ public class GameManagerScript : MonoBehaviour
         GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);
 
         // S'assurer que la somme fasse bien 1 -_- (ou proche au pire)
-        obstacleIsleProbability = 0.5f;
-		obstacleLightHouseProbability = 0.5f;
+        obstacleIsleProbability = 1.0f;
+		obstacleLightHouseProbability = 0.0f;
 		obstacleOilSlickProbability = 0.0f;
 		obstacleSchoolOfSharkProbability = 0.0f;
 
@@ -106,12 +109,36 @@ public class GameManagerScript : MonoBehaviour
                     //    }
                     //}
 
-                    GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
-                    go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, Random.value * 360);
-					go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
-					ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
+				    float randomRotationZ = Random.value * 360;
+                    int randomAnimation = Random.Range(0, 4);
 
-					obstacles.Add(ots);
+
+                    GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
+                    go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, randomRotationZ);
+                    go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
+                    ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
+
+                    go.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
+                    go.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+
+                    // J'essaye de faire qu'on voit que la carte est sans limite
+                    Vector3 islePosition2 = new Vector3(
+                        go.transform.position.x > 19 ? go.transform.position.x - mapSize.x : (go.transform.position.x < 1 ? go.transform.position.x + mapSize.x : go.transform.position.x),
+                        go.transform.position.y > 19 ? go.transform.position.y - mapSize.y : (go.transform.position.y < 1 ? go.transform.position.y + mapSize.y : go.transform.position.y),
+                        0);
+
+				    if (islePosition2 != islePosition)
+				    {
+                        GameObject goo = Instantiate(obstaclePrefab, islePosition2, Quaternion.identity);
+                        goo.transform.eulerAngles = new Vector3(goo.transform.eulerAngles.x, goo.transform.eulerAngles.y, randomRotationZ);
+                        goo.transform.localScale = new Vector3((float)(goo.transform.localScale.x * obstacleSizeModifier), (float)(goo.transform.localScale.y * obstacleSizeModifier), 1);
+                        ObstacleTemplateScript otss = goo.GetComponent<ObstacleTemplateScript>();
+
+                        goo.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
+                        goo.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+
+                        obstacles.Add(otss);
+                    }
 				}
 			}
 		}
