@@ -70,11 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864e7a2bb55e2574380753c387ae59e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animators:
-  - {fileID: 9100000, guid: a14f800ff6e80444b88c7c4213bf470d, type: 2}
-  - {fileID: 9100000, guid: f7e66410b3d2f8e4aa137dc78825817c, type: 2}
-  - {fileID: 9100000, guid: da96f93af82c75e4f81382f1af8ea52d, type: 2}
-  - {fileID: 9100000, guid: 7560464da89b5f64598a26615261e97d, type: 2}
   sprites:
   - {fileID: 21300000, guid: b3307e98e1138014f9b82462ddb6ad65, type: 3}
   - {fileID: 21300000, guid: 3fb02ae96c81fc140af7b6c130cbcccf, type: 3}
@@ -110,7 +105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b3307e98e1138014f9b82462ddb6ad65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

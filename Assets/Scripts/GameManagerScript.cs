@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -47,7 +49,7 @@ public class GameManagerScript : MonoBehaviour
 
 		// Initialisation des variables de configuration de la partie (en dur, ouais)
 		mapSize = new Vector2(20, 20);
-		obstaclesDensity = 0.05f;
+		obstaclesDensity = 0.15f;
 
         GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);
 
@@ -66,17 +68,7 @@ public class GameManagerScript : MonoBehaviour
 				if (spawnObstacle < obstaclesDensity)
 				{
 					float obstacleType = Random.value;
-
-                    // TODO: ne pas spawn juste à côté
-					float obstaclePositionX = Random.value * mapSize.x;
-					float obstaclePositionY = Random.value * mapSize.y;
 					double obstacleSizeModifier = 1 + ((Random.value - 0.5) / 1);
-
-                    // Vérifier si y'a pas autre chose pas loin
-				    foreach (ObstacleTemplateScript obstacle in obstacles)
-				    {
-				        
-				    }
 
 					GameObject obstaclePrefab;
 					if(obstacleType < obstacleIsleProbability) {
@@ -93,7 +85,28 @@ public class GameManagerScript : MonoBehaviour
 						obstaclePrefab = obstacleSchoolOfSharksPrefab;
 					}
 
-					GameObject go = Instantiate(obstaclePrefab, new Vector3(obstaclePositionX, obstaclePositionY, 0), Quaternion.identity);
+                    Vector3 islePosition;
+
+                    // Vérifier si y'a pas autre chose pas loin
+                    //while(true) {
+                    islePosition = new Vector3(Random.value * mapSize.x, Random.value * mapSize.y, 0);
+                    //    bool ok = true;
+                    //    foreach(ObstacleTemplateScript obstacle in obstacles) {
+                    //        //if(obstacle == null) {
+                    //        //    ok = false;
+                    //        //    break;
+                    //        //}
+                    //        if(Vector3.Distance(islePosition, obstacle.gameObject.transform.position) < 2) {
+                    //            ok = false;
+                    //            break;
+                    //        }
+                    //    }
+                    //    if(ok) {
+                    //        break;
+                    //    }
+                    //}
+
+                    GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
                     go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, Random.value * 360);
 					go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
 					ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
