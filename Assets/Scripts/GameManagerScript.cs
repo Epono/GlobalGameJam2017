@@ -36,7 +36,7 @@ public class GameManagerScript : MonoBehaviour
 
 	private List<ObstacleTemplateScript> obstacles;
 
-	private List<GameObject> pickUps;
+	//private List<GameObject> pickUps;
 
     [SerializeField]
     EventManager eventManager;
@@ -94,7 +94,7 @@ public class GameManagerScript : MonoBehaviour
         // Initialisation des listes
         warships = new List<GameObject>();
 		obstacles = new List<ObstacleTemplateScript>();
-		pickUps = new List<GameObject>();
+		//pickUps = new List<GameObject>();
 
 		// Initialisation des variables de configuration de la partie (en dur, ouais)
 		mapSize = new Vector2(20, 20);
@@ -223,6 +223,32 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update ()
 	{
+        foreach(GameObject goo in GameObject.FindGameObjectsWithTag("WARSHIP")) {
+            if(goo.transform.position.x > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x - 20, goo.transform.position.y, goo.transform.position.z);
+            } else if(goo.transform.position.x < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x + 20, goo.transform.position.y, goo.transform.position.z);
+            }
 
+            if(goo.transform.position.y > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y - 20, goo.transform.position.z);
+            } else if(goo.transform.position.y < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y + 20, goo.transform.position.z);
+            }
+        }
+
+        foreach(GameObject goo in GameObject.FindGameObjectsWithTag("ROCKET")) {
+            if(goo.transform.position.x > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x - 20, goo.transform.position.y, goo.transform.position.z);
+            } else if(goo.transform.position.x < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x + 20, goo.transform.position.y, goo.transform.position.z);
+            }
+
+            if(goo.transform.position.y > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y - 20, goo.transform.position.z);
+            } else if(goo.transform.position.y < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y + 20, goo.transform.position.z);
+            }
+        }
     }
 }

@@ -8,23 +8,6 @@ public class NetworkManagerScriptCustom : NetworkBehaviour {
     [SyncVar]
     public int seed;
 
-    void OnServerInitialized() {
-        Debug.Log("OnServerInitialized");
-    }
-
-    public override void OnStartServer() {
-        Debug.Log("OnStartServer");
-    }
-
-    void OnConnectedToServer() {
-        Debug.Log("OnConnectedToServer");
-    }
-
-    void OnPlayerConnected(NetworkPlayer player) 
-    {
-        Debug.Log("playerConnected");
-    }
-
     // Use this for initialization
     void Start () {
 
