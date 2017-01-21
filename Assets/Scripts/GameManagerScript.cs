@@ -45,12 +45,14 @@ public class GameManagerScript : MonoBehaviour
 
 	private List<GameObject> pickUps;
 
+    [SerializeField]
+    EventManager eventManager;
 
 	void Start ()
 	{
         // NE PAS SUPPRIMER
         //camera.pixelRect = new Rect(Screen.width - 595, Screen.height - 655, 590, 590);
-
+        Instantiate(eventManager);
         float targetaspect = 9.0f / 9.0f;
 
         // determine the game window's current aspect ratio
