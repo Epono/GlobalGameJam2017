@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114015462208004916}
   m_Layer: 0
   m_Name: ObstacleIslePrefab
-  m_TagString: Untagged
+  m_TagString: ISLAND
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864e7a2bb55e2574380753c387ae59e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   sprites:
   - {fileID: 21300000, guid: b3307e98e1138014f9b82462ddb6ad65, type: 3}
   - {fileID: 21300000, guid: 3fb02ae96c81fc140af7b6c130cbcccf, type: 3}
