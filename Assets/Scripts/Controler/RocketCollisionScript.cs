@@ -15,13 +15,23 @@ public class RocketCollisionScript : MonoBehaviour {
             Debug.Log("Fuck you! hit");
         if(hit.tag == "WARSHIP")
         {
-        var health = hit.GetComponent<PlayerMovementScript>();
+            var health = hit.GetComponent<PlayerMovementScript>();
             if (health != null)
             {
                 health.TakeDamage(rocketAttributes.Damages);
             }
-            else
-                Debug.Log("Fuck you!");
+        }
+        else if(hit.tag == "ISLAND")
+        {
+            var health = hit.GetComponent<IsleAttribute>();
+            if (health != null)
+            {
+                health.HealthPoint--;
+                if(health.HealthPoint <=0 )
+                {
+                    Destroy(hit);
+                }
+            }
         }
 
         Destroy(gameObject);

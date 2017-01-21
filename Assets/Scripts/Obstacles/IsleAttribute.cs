@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class IsleAttribute {
     
-    private int _healthPoint;
-        public int HealthPoint
+    private int _healthPoint = 3;
+    public int HealthPoint
     {
         get { return _healthPoint; }
         set { _healthPoint = value; }
     }
 
-    private int _damageToGive;
+    private int _damageToGive = 25;
 
     public int DamageToGive
     {

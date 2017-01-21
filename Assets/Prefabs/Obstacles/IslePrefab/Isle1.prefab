@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114937542502838328}
   m_Layer: 0
   m_Name: Isle1
-  m_TagString: Untagged
+  m_TagString: ISLAND
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
