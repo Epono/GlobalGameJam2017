@@ -130,10 +130,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1669136723734410, guid: d083b4d9ef0dd4c4ca318ff7e0865a59, type: 2}
-      propertyPath: m_Name
-      value: Warship
+    - target: {fileID: 114854295972432280, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114854295972432280, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+        type: 2}
+      propertyPath: _spriteObj
+      value: 
+      objectReference: {fileID: 2058278047}
+    - target: {fileID: 114854295972432280, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+        type: 2}
+      propertyPath: _warshipSprite
+      value: 
+      objectReference: {fileID: 2058278048}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d083b4d9ef0dd4c4ca318ff7e0865a59, type: 2}
   m_IsPrefabParent: 0
@@ -239,6 +250,7 @@ MonoBehaviour:
   _vzScript: {fileID: 0}
   _warshipSprite: {fileID: 0}
   _type: 0
+  _state: 0
   ok: 0
 --- !u!1 &1916856602
 GameObject:
@@ -304,3 +316,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2058278047 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1905199627019568, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1144139520}
+--- !u!212 &2058278048 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212999216268687136, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1144139520}
