@@ -13,8 +13,8 @@ public class RocketCollisionScript : MonoBehaviour {
         var hit = collision.gameObject;
         if(hit == null)
             Debug.Log("Fuck you! hit");
-        //if(hit.tag == "WARSHIP")
-        //{
+        if(hit.tag == "WARSHIP")
+        {
         var health = hit.GetComponent<PlayerMovementScript>();
             if (health != null)
             {
@@ -22,7 +22,7 @@ public class RocketCollisionScript : MonoBehaviour {
             }
             else
                 Debug.Log("Fuck you!");
-        //}
+        }
 
         Destroy(gameObject);
     }
