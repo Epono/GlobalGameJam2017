@@ -2,15 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField]
     Camera camera;
-
-    [SerializeField]
-	GameObject obstacleIslePrefab;
 
 	[SerializeField]
 	GameObject obstacleLightHousePrefab;
@@ -24,11 +22,6 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     GameObject seaPrefab;
 
-    [SerializeField]
-    List<Sprite> sprites;
-
-    [SerializeField]
-    List<Collider> colliders;
     [SerializeField]
     List<GameObject> isleGameObject;
 
@@ -48,8 +41,21 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     EventManager eventManager;
 
-	void Start ()
-	{
+    void Start ()
+    {
+        NetworkManagerScriptCustom nmsc = GetComponent<NetworkManagerScriptCustom>();
+        if (nmsc.isServer)
+        {
+            Debug.Log("serveur");
+            nmsc.seed = DateTime.Now.Millisecond;
+        }
+        else
+        {
+	        Debug.Log("client");
+        }
+
+        Random.InitState(nmsc.seed);
+        
         // NE PAS SUPPRIMER
         //camera.pixelRect = new Rect(Screen.width - 595, Screen.height - 655, 590, 590);
         Instantiate(eventManager);

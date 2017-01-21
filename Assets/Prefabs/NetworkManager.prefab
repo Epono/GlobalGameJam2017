@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4389889211203350}
   - component: {fileID: 114252177934357246}
   - component: {fileID: 114011696762754114}
+  - component: {fileID: 114542000810642110}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1427670897677242, guid: dbdc78c513db6c54b9ec63d2a4d65cdc, type: 2}
+  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -126,3 +127,14 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+--- !u!114 &114542000810642110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874691026727166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe797ac30b66894487da511c57009f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
