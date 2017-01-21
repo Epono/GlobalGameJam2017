@@ -88,39 +88,43 @@ public class WarshipScript : MonoBehaviour
 	
 
 		_attributes = new WarshipDefault();
-		_insideColor = new Color(255, 255, 255, 100 / 255);//en dur :'(
-		_outsideColor = new Color(255, 255, 255, 255);
-
+		_insideColor = new Color(255f, 255f, 255f, 100f / 255f);//en dur :'(
+		_outsideColor = new Color(255f, 255f, 255f, 255f);
 		_warshipSprite.color = _insideColor; //TODO: enlever ça
-    }
+	}
 
 
 	public bool ok;
-    void Update()
-    {
-        if (ok)
-        {
+	void Update()
+	{
+		
+		if( ok )
+		{
 
-
-            //Mettre dans l'event getDamage
-            // animator.SetBool("isAlive", false);
-
-
-            if (_state == EWarshipState.OUTSIDE)
-            {
-                _vzScript.StartDescendCoroutine();
-                StartCoroutine("DescendCoroutine");
-                ok = false;
-            }
-            else
-            {
-                _vzScript.StartAscendCoroutine();
-                StartCoroutine("AscendCoroutine");
-                ok = false;
-            }
-
+			_vzScript.StartAscendCoroutine();
+			StartCoroutine("AscendCoroutine");
+			ok = false;
         }
-    }
+
+        //Mettre dans l'event getDamage
+        animator.SetBool("isAlive", false);
+    
+
+			if( _state == EWarshipState.OUTSIDE )
+			{
+				_vzScript.StartDescendCoroutine();
+				StartCoroutine("DescendCoroutine");
+				ok = false;
+			}
+			else
+			{
+				_vzScript.StartAscendCoroutine();
+				StartCoroutine("AscendCoroutine");
+				ok = false;
+			}
+
+		}
+	
 
 	public IEnumerator AscendCoroutine()
 	{
