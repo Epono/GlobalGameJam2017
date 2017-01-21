@@ -16,6 +16,9 @@ public class PlayerMovementScript : NetworkBehaviour
 
     private WarshipAttributes attributes;
 
+    [SyncVar]
+    private int currentHealth;
+
     private Vector2 forward;
 
     public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
@@ -23,21 +26,22 @@ public class PlayerMovementScript : NetworkBehaviour
     void Start()
     {
         attributes = script.Attributes;
+        currentHealth = attributes.HealthPoint;
     }
 
     void Update()
     {
-        transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
+        //transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
         if (!isLocalPlayer)
         {
             return;
         }
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        //var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
         transform.Rotate(0, 0, -x);
-        //transform.Translate(0, y, 0);
+        transform.Translate(0, y, 0);
         forward.x = bulletSpawn.position.x - transform.position.x;
         forward.y = bulletSpawn.position.y - transform.position.y;
         forward.Normalize();
@@ -78,6 +82,24 @@ public class PlayerMovementScript : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         //GetComponent<MeshRenderer>().material.color = Color.blue;
+    }
+
+    public void TakeDamage(int amount)
+    {
+
+        if (!isServer)
+        {
+            return;
+        }
+        currentHealth -= amount;
+        attributes.HealthPoint -= currentHealth;
+        Debug.Log(currentHealth);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log("Dead!");
+            //LUCAS BOOLEAN ICI
+        }
     }
 
 }

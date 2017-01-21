@@ -66,3 +66,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3fb02ae96c81fc140af7b6c130cbcccf, type: 3}
   - {fileID: 21300000, guid: 0a5d0831f3b8cfa44a0539e1117e2860, type: 3}
   - {fileID: 21300000, guid: 5ecbd9781cfa2e64bb80367db9a56e75, type: 3}
+  colliders: []
+  isleGameObject:
+  - {fileID: 1656705065990054, guid: 6c57428a7f7da4a41858d803860749d6, type: 2}
+  - {fileID: 1749335216876962, guid: 33c6d1262fc274d4ebe57c40c3dee2b5, type: 2}
+  - {fileID: 1021871787823174, guid: b4b258d172fb8074eaccac2289d7ae7b, type: 2}
+  - {fileID: 1330679713624536, guid: 883f4a73b81f20648a7d2e1fdff40f91, type: 2}

@@ -20,7 +20,15 @@ public abstract class WarshipAttributes
 		set	{_healthPoint = value;}
 	}
 
-	[SerializeField]
+    [SerializeField]
+    private int _maxHealth;
+    public int MaxHealth
+    {
+        get { return _maxHealth; }
+        set { _maxHealth = value; }
+    }
+
+    [SerializeField]
 	private Vector3 _position;
 	public Vector3 Position
 	{
