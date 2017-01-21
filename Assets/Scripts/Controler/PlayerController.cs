@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float x = Input.GetAxis("Horizontal");
+        //float x = Input.GetAxis("Horizontal");
         //Debug.Log(x);
         getInput();
        
@@ -72,15 +72,14 @@ public class PlayerController : MonoBehaviour {
     {
 
         float x = Input.GetAxis("Horizontal")/* * Time.deltaTime * 150.0f*/;
-        float fire = Input.GetAxis("Fire");
-        float waveshot = Input.GetAxis("WaveShot");
-        float aimX = Input.GetAxis("AimX");
-        float aimY = Input.GetAxis("AimY");
-        //Debug.Log(x);
-        //Debug.Log(aimX);
-        if(aimX != 0 || aimY != 0 )
+        float fire       = Input.GetAxis("Fire");
+        float waveshot   = Input.GetAxis("Sonar");
+        float aimX       = Input.GetAxis("aimX");
+        float aimY       = Input.GetAxis("aimY");
+
+        if (aimX != 0 || aimY != 0)
         {
-           
+
             infoList[Action.AIM] = true;
         }
 
@@ -89,17 +88,17 @@ public class PlayerController : MonoBehaviour {
             infoList[Action.WAVESHOT] = true;
         }
 
-        if(fire > 0.5)
+        if (fire > 0.5)
         {
             infoList[Action.FIRE] = true;
         }
 
-        if(x < 0.0f)
+        if (x < 0.0f)
         {
             infoList[Action.LEFT] = true;
             Debug.Log(x);
         }
-        else if(x > 0.0f)
+        else if (x > 0.0f)
         {
             infoList[Action.RIGHT] = true;
             Debug.Log(x);
@@ -113,7 +112,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         //LB
-        if(Input.GetKeyDown(KeyCode.Joystick1Button4))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
             // Deccelerate();
             infoList[Action.DECCELERATE] = true;
@@ -121,7 +120,7 @@ public class PlayerController : MonoBehaviour {
         //RB
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
-            
+
             //Accelerate();
             infoList[Action.ACCELERATE] = true;
         }
@@ -132,8 +131,8 @@ public class PlayerController : MonoBehaviour {
             infoList[Action.SWITCH_ROCKET] = true;
         }
 
-
-       infoToTransmit = new InfoSend(x, new Vector2(aimX, aimY), infoList);
+        //move = x;
+        infoToTransmit = new InfoSend(x, new Vector2(aimX, aimY), infoList);
        // Debug.Log(x);
        mov.readInfo(infoToTransmit);
 

@@ -20,13 +20,23 @@ public class PlayerMovementScript : NetworkBehaviour
     private int currentHealth;
 
     private Vector2 forward;
+    private bool shootFire = false;
 
+    float  x = 0.0f;
     public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
     
     void Start()
     {
         attributes = script.Attributes;
         currentHealth = attributes.HealthPoint;
+    }
+
+    public void readInfo(InfoSend infos)
+    {
+        x = infos.move;
+        forward = infos.aimAngle;
+        forward.Normalize();
+        shootFire = infos.inputListing[Action.FIRE];
     }
 
     void Update()
@@ -37,22 +47,23 @@ public class PlayerMovementScript : NetworkBehaviour
             return;
         }
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+
+        
 
         transform.Rotate(0, 0, -x);
         transform.Translate(0, y, 0);
-        forward.x = bulletSpawn.position.x - transform.position.x;
-        forward.y = bulletSpawn.position.y - transform.position.y;
-        forward.Normalize();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+
+        if (!shootFire)
         {
-            if (attributes.Ammunition > 0)
-            {
+            //if (attributes.Ammunition > 0)
+            //{
                 CmdFire(forward);
                 attributes.Ammunition--;
-            }
+            //}
         }
     }
 

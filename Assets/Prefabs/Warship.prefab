@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114216905141900962}
   - component: {fileID: 114714633291813826}
   - component: {fileID: 61593490734791588}
+  - component: {fileID: 114225254061727008}
   m_Layer: 0
   m_Name: Warship
   m_TagString: WARSHIP
@@ -185,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009265356034248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4822508477510448}
@@ -242,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242380427817638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.021416254, y: 0.12467908, z: 0}
+  m_LocalPosition: {x: -0.052471075, y: 0.0066378806, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4916005917140692}
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255209676858532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f564fed325a49cc41ac0c102617ec4e0, type: 3}
   m_Name: 
@@ -423,6 +424,21 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114225254061727008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242380427817638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef1f270d610b9240bc593b6b70b22a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: 0
+  aimAngle: {x: 0, y: 0}
+  mov: {fileID: 0}
+  myAction: 0
 --- !u!114 &114356392740694134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,13 +495,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248867771195846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2749d030ba743e43b1e701b3a3fd152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scanTransform: {fileID: 4386152465198834}
-  _spawnRocket: {fileID: 4241359820714944}
+  _scanTransform: {fileID: 0}
+  _spawnRocket: {fileID: 0}
   _defaultScale: {x: 0, y: 0}
   _angle: 0
   speed: 1
