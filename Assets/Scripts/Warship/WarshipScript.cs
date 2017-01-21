@@ -6,7 +6,10 @@ public enum EWarshipType { W0, W1, W2, W3 }; //a definir
 
 public class WarshipScript : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
+    Animator animator;
+
+    [SerializeField]
 	private ViewZoneScript _vzScript;
 
 	[SerializeField]
@@ -53,7 +56,8 @@ public class WarshipScript : MonoBehaviour
 	}
 	void Start()
 	{
-		_attributes = new WarshipDefault();
+         animator.SetBool("isAlive", true);
+        _attributes = new WarshipDefault();
 		_defaultAlpha = 0.4f;
 	}
 
@@ -65,8 +69,11 @@ public class WarshipScript : MonoBehaviour
 			_vzScript.StartAscendCoroutine();
 			StartCoroutine("AscendCoroutine");
 			ok = false;
-		}
-	}
+        }
+
+        //Mettre dans l'event getDamage
+        animator.SetBool("isAlive", false);
+    }
 
 	public IEnumerator AscendCoroutine()
 	{

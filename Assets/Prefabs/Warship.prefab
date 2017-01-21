@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9925df1161e771441975cc0802a7149b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _collider: {fileID: 58463874125033324}
 --- !u!114 &114241274144982594
 MonoBehaviour:
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 750b0e86353a35e44985fe86ff31af2f, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _sprite: {fileID: 212555495112132560}
   _vzCollider: {fileID: 114127000024327666}
 --- !u!114 &114571526343576214
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2749d030ba743e43b1e701b3a3fd152, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _collider: {fileID: 60397729510048768}
   _defaultScale: {x: 0, y: 0}
   _angle: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f564fed325a49cc41ac0c102617ec4e0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _transform: {fileID: 4402284888769460}
   _scanCollider: {fileID: 114571526343576214}
 --- !u!114 &114854295972432280
@@ -368,8 +368,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86ce5450b3e9b4e48a222f12ddb9faa5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   _vzScript: {fileID: 114241274144982594}
   _warshipSprite: {fileID: 212999216268687136}
   _type: 0
@@ -475,7 +476,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: c791d8ad13d4bd4419e472ea65272051, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f057bc407067804e8a8e14dd3ae9803, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
