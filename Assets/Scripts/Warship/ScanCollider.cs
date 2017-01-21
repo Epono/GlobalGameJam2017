@@ -5,7 +5,17 @@ using UnityEngine;
 public class ScanCollider : MonoBehaviour
 {
 	[SerializeField]
-	private PolygonCollider2D _collider;
+	private Transform _scanTransform;
+
+	[SerializeField]
+	private Transform _spawnRocket;
+	public Transform SpawnRocket
+	{
+		get { return _spawnRocket; }
+		set { _spawnRocket = value; }
+	}
+
+	private Vector2 _oldSpawnRocket;
 
 	[SerializeField]
 	private Vector2 _defaultScale;
@@ -16,8 +26,8 @@ public class ScanCollider : MonoBehaviour
 	}
 
 	[SerializeField]
-	private Quaternion _angle;
-	public Quaternion Angle
+	private float _angle;
+	public float Angle
 	{
 		get { return _angle; }
 		set { _angle = value; }
@@ -30,43 +40,61 @@ public class ScanCollider : MonoBehaviour
 		set { _warshipPosition = value; }
 	}
 
-	public float	speed = 1.0F;
-	public float	timeScan = 5f;
-	public bool		DoScan = false;
-	private float _timeSpend = 0f;
+	public float    speed;
+	public float    timeScan;
+	public bool     DoScan = false;
+	private float   _timeSpend;
 
 	void Start()
 	{
-		_defaultScale = _collider.transform.localScale;
+		_defaultScale = _scanTransform.localScale;
+		_oldSpawnRocket = _spawnRocket.position;
 	}
 
 	void Update()
 	{
-		if ( DoScan )
+		if( DoScan )//Voir Quand activer le radar
 		{
 			_timeSpend += Time.deltaTime;
-			if(_timeSpend >= timeScan)
+			if( timeScan - _timeSpend <= 0f )
 			{
-				_timeSpend = 0;
+				_timeSpend = 0f;
 				DoScan = false;
-				_collider.transform.position = _warshipPosition;
-				_collider.transform.localScale = _defaultScale;
+				_scanTransform.position = _warshipPosition;
+				_scanTransform.localScale = _defaultScale;
 				return;
 			}
-			_collider.transform.Translate(Time.deltaTime * speed, 0, 0, _collider.transform);
-			_collider.transform.localScale = new Vector2(_collider.transform.localScale.x + ( _collider.transform.localScale.x * Time.deltaTime * 0.5f )
-													, _collider.transform.localScale.y + ( _collider.transform.localScale.y * Time.deltaTime * 0.5f ));
+			else
+			{
+				_scanTransform.Translate(Time.deltaTime * speed, 0, 0, _scanTransform);
+				_scanTransform.localScale = new Vector2(_scanTransform.localScale.x + ( _scanTransform.localScale.x * Time.deltaTime * 0.5f )
+														, _scanTransform.localScale.y + ( _scanTransform.localScale.y * Time.deltaTime * 0.5f ));
+
+			}
 		}
-		
+		else
+		{
+			MoveScan();
+		}
+
 	}
 
 	public void OnTriggerEnter2D( Collider2D col )
 	{
-		if (col.tag.Equals("WARSHIP"))
+		if( col.tag.Equals("WARSHIP") )
 		{
 			Debug.Log("Collider warship");
 			//Instanciate le point de repere
 		}
+	}
+
+	public void MoveScan()
+	{
+		Vector2 vOld = _oldSpawnRocket - _warshipPosition;
+		Vector2 vNew = new Vector2(_spawnRocket.position.x, _spawnRocket.position.y) - _warshipPosition;
+		_angle = Vector2.Angle(vOld, vNew);
+		_scanTransform.eulerAngles = new Vector3(0, 0, _angle);
+
 	}
 
 }
