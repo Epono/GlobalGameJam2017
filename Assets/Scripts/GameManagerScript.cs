@@ -45,12 +45,14 @@ public class GameManagerScript : MonoBehaviour
 
 	private List<GameObject> pickUps;
 
+    [SerializeField]
+    EventManager eventManager;
 
 	void Start ()
 	{
         // NE PAS SUPPRIMER
         //camera.pixelRect = new Rect(Screen.width - 595, Screen.height - 655, 590, 590);
-
+        Instantiate(eventManager);
         float targetaspect = 9.0f / 9.0f;
 
         // determine the game window's current aspect ratio
@@ -114,7 +116,9 @@ public class GameManagerScript : MonoBehaviour
 					GameObject obstaclePrefab;
 					if(obstacleType < obstacleIsleProbability) {
 						// Isle
-						obstaclePrefab = obstacleIslePrefab;
+						//obstaclePrefab = obstacleIslePrefab;
+                        int randomAnimation = Random.Range(0, 4);
+					    obstaclePrefab = isleGameObject[randomAnimation];
 					} else if(obstacleType < obstacleIsleProbability + obstacleLightHouseProbability) {
 						// LightHouse
 						obstaclePrefab = obstacleLightHousePrefab;
@@ -126,11 +130,11 @@ public class GameManagerScript : MonoBehaviour
 						obstaclePrefab = obstacleSchoolOfSharksPrefab;
 					}
 
-                    Vector3 islePosition;
+                    Vector3 obstaclePosition;
 
                     // Vérifier si y'a pas autre chose pas loin
                     //while(true) {
-                    islePosition = new Vector3(Random.value * mapSize.x, Random.value * mapSize.y, 0);
+                    obstaclePosition = new Vector3(Random.value * mapSize.x, Random.value * mapSize.y, 0);
                     //    bool ok = true;
                     //    foreach(ObstacleTemplateScript obstacle in obstacles) {
                     //        //if(obstacle == null) {
@@ -148,30 +152,24 @@ public class GameManagerScript : MonoBehaviour
                     //}
 
 				    float randomRotationZ = Random.value * 360;
-                    int randomAnimation = Random.Range(0, 4);
+                    //int randomAnimation = Random.Range(0, 4);
 
-                    GameObject go;
-                    //GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
-                    if(randomAnimation  == 0)
-                    {
-                        go = Instantiate(isleGameObject[0], islePosition, Quaternion.identity);
-                    }
-                    else if (randomAnimation == 1)
-                    {
-                        go = Instantiate(isleGameObject[1], islePosition, Quaternion.identity);
-                    }
-                    else if (randomAnimation == 2)
-                    {
-                        go = Instantiate(isleGameObject[2], islePosition, Quaternion.identity);
-                    }
-                    else if (randomAnimation == 3)
-                    {
-                        go = Instantiate(isleGameObject[3], islePosition, Quaternion.identity);
-                    }
-                    else
-                    {
-                        go = new GameObject();
-                    }
+                    GameObject go = Instantiate(obstaclePrefab, obstaclePosition, Quaternion.identity);
+                    //if(randomAnimation  == 0)
+                    //{
+                    //    go = Instantiate(isleGameObject[0], islePosition, Quaternion.identity);
+                    //}
+                    //else if (randomAnimation == 1)
+                    //{
+                    //    go = Instantiate(isleGameObject[1], islePosition, Quaternion.identity);
+                    //}
+                    //else if (randomAnimation == 2)
+                    //{
+                    //    go = Instantiate(isleGameObject[2], islePosition, Quaternion.identity);
+                    //}
+                    //else { 
+                    //    go = Instantiate(isleGameObject[3], islePosition, Quaternion.identity);
+                    //}
 
                     go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, randomRotationZ);
                     go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
@@ -192,7 +190,7 @@ public class GameManagerScript : MonoBehaviour
                         go.transform.position.y > 19 ? go.transform.position.y - mapSize.y : (go.transform.position.y < 1 ? go.transform.position.y + mapSize.y : go.transform.position.y),
                         0);
 
-				    if (islePosition2 != islePosition)
+				    if (islePosition2 != obstaclePosition)
 				    {
             //            GameObject goo = Instantiate(obstaclePrefab, islePosition2, Quaternion.identity);
             //            goo.transform.eulerAngles = new Vector3(goo.transform.eulerAngles.x, goo.transform.eulerAngles.y, randomRotationZ);

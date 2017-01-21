@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4418153928049292}
   - component: {fileID: 114416841352528216}
+  - component: {fileID: 114909657362076340}
   m_Layer: 0
   m_Name: GameManagerPrefab
   m_TagString: Untagged
@@ -49,8 +50,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5278efae87eb2244ead3201ac535bd44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   camera: {fileID: 0}
   obstacleIslePrefab: {fileID: 1547089813953212, guid: a4cf8e8b3dfcad74abd9d5105d2189ef,
     type: 2}
@@ -72,3 +73,18 @@ MonoBehaviour:
   - {fileID: 1749335216876962, guid: 33c6d1262fc274d4ebe57c40c3dee2b5, type: 2}
   - {fileID: 1021871787823174, guid: b4b258d172fb8074eaccac2289d7ae7b, type: 2}
   - {fileID: 1330679713624536, guid: 883f4a73b81f20648a7d2e1fdff40f91, type: 2}
+  eventManager: {fileID: 114298517492088296, guid: 6936e4a075e9cc942a45a76494b01ffc,
+    type: 2}
+--- !u!114 &114909657362076340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780347301896434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3917264a349c4a84d88aa1706e518462, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _buttonsExitGame:
+  - {fileID: 0}
