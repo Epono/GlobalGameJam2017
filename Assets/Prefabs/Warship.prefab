@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1669136723734410}
   m_IsPrefabParent: 1
+--- !u!1 &1106862043497726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4310931813804578}
+  m_Layer: 0
+  m_Name: RocketSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1150092955470904
 GameObject:
   m_ObjectHideFlags: 1
@@ -67,6 +82,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4434301681463662}
   - component: {fileID: 114854295972432280}
+  - component: {fileID: 114761813415268236}
+  - component: {fileID: 114929304232546346}
+  - component: {fileID: 114104680037411030}
   m_Layer: 0
   m_Name: Warship
   m_TagString: Untagged
@@ -118,6 +136,19 @@ Transform:
   m_Father: {fileID: 4434301681463662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4310931813804578
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106862043497726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4434301681463662}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4380485305599534
 Transform:
   m_ObjectHideFlags: 1
@@ -138,12 +169,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669136723734410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
+  m_LocalPosition: {x: 3.5258656, y: -9.359354, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4014508948516400}
   - {fileID: 4380485305599534}
   - {fileID: 4958174510272334}
+  - {fileID: 4310931813804578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,6 +234,53 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114104680037411030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733abdd892b570040894833882469e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
+    type: 2}
+  bulletSpawn: {fileID: 0}
+  MovementMagicNumber: 0.05
+--- !u!114 &114761813415268236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 208
+    i1: 131
+    i2: 180
+    i3: 217
+    i4: 239
+    i5: 13
+    i6: 212
+    i7: 196
+    i8: 202
+    i9: 49
+    i10: 143
+    i11: 247
+    i12: 224
+    i13: 134
+    i14: 90
+    i15: 89
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114854295972432280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +294,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _warshipSprite: {fileID: 212999216268687136}
   _type: 0
+--- !u!114 &114929304232546346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.04347826
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212555495112132560
 SpriteRenderer:
   m_ObjectHideFlags: 1
