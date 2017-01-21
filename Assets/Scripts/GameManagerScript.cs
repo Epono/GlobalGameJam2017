@@ -52,13 +52,13 @@ public class GameManagerScript : MonoBehaviour
 
 		// Initialisation des variables de configuration de la partie (en dur, ouais)
 		mapSize = new Vector2(20, 20);
-		obstaclesDensity = 0.15f;
+		obstaclesDensity = 0.20f;
 
         GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);
 
         // S'assurer que la somme fasse bien 1 -_- (ou proche au pire)
-        obstacleIsleProbability = 1.0f;
-		obstacleLightHouseProbability = 0.0f;
+        obstacleIsleProbability = 0.8f;
+		obstacleLightHouseProbability = 0.2f;
 		obstacleOilSlickProbability = 0.0f;
 		obstacleSchoolOfSharkProbability = 0.0f;
 
@@ -118,8 +118,13 @@ public class GameManagerScript : MonoBehaviour
                     go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
                     ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
 
-                    go.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
-                    go.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+				    if (obstaclePrefab == obstacleIslePrefab)
+				    {
+				        go.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
+				        go.GetComponent<Animator>().runtimeAnimatorController =
+				            (RuntimeAnimatorController) Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+				    }
+
 
                     // J'essaye de faire qu'on voit que la carte est sans limite
                     Vector3 islePosition2 = new Vector3(
@@ -134,10 +139,14 @@ public class GameManagerScript : MonoBehaviour
                         goo.transform.localScale = new Vector3((float)(goo.transform.localScale.x * obstacleSizeModifier), (float)(goo.transform.localScale.y * obstacleSizeModifier), 1);
                         ObstacleTemplateScript otss = goo.GetComponent<ObstacleTemplateScript>();
 
-                        goo.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
-                        goo.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+				        if (obstaclePrefab == obstacleIslePrefab)
+				        {
+				            goo.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
+				            goo.GetComponent<Animator>().runtimeAnimatorController =
+				                (RuntimeAnimatorController) Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+				        }
 
-                        obstacles.Add(otss);
+				        obstacles.Add(otss);
                     }
 				}
 			}
