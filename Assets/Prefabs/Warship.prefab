@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114999478558079004}
   - component: {fileID: 114216905141900962}
   - component: {fileID: 114714633291813826}
+  - component: {fileID: 61593490734791588}
   m_Layer: 0
   m_Name: Warship
   m_TagString: WARSHIP
@@ -317,6 +318,20 @@ PolygonCollider2D:
     - - {x: 1, y: -0.2}
       - {x: 0, y: 0}
       - {x: 1, y: 0.2}
+--- !u!61 &61593490734791588
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242380427817638}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.17, y: 0.49}
 --- !u!114 &114060796635310688
 MonoBehaviour:
   m_ObjectHideFlags: 1
