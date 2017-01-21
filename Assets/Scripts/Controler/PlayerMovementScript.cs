@@ -111,8 +111,8 @@ public class PlayerMovementScript : NetworkBehaviour
             var health = hit.GetComponent<PlayerMovementScript>();
             if (health != null)
             {
-                health.TakeDamage(attributes.collisionDamages);
-                TakeDamage(health.attributes.collisionDamages);
+                health.TakeDamage(attributes.CollisionDamage);
+                TakeDamage(health.attributes.CollisionDamage);
             }
         }
         else if (hit.tag == "ISLAND")
@@ -121,7 +121,7 @@ public class PlayerMovementScript : NetworkBehaviour
             if (health != null)
             {
                 health.HealthPoint--;
-                health.TakeDamage(attributes.collisionDamages);
+                TakeDamage(attributes.CollisionDamage);
                 if (health.HealthPoint <= 0)
                 {
                     Destroy(hit);
