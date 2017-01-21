@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WARSHIP
   - ISLAND
+  - ROCKET
   layers:
   - Default
   - TransparentFX
