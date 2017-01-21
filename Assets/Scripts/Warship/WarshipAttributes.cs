@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class WarshipAttributes
 {
+    
+    
+
 	[SerializeField]
 	private int _ammunition;
 	public int Ammunition

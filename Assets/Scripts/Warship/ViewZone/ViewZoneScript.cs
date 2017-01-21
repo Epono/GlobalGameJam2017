@@ -6,6 +6,11 @@ public class ViewZoneScript : MonoBehaviour
 {
 	[SerializeField]
 	private SpriteRenderer _sprite;
+	public SpriteRenderer Sprite
+	{
+		get { return _sprite; }
+		set { _sprite = value; }
+	}
 
 	[SerializeField]
 	private ViewZoneCollider _vzCollider;
@@ -60,7 +65,7 @@ public class ViewZoneScript : MonoBehaviour
 		yield return new WaitForSeconds(.4f);
 		_sprite.color = new Color(_sprite.material.color.r, _sprite.material.color.g, _sprite.material.color.b, _outsideColor.a + 0.8f);
 		yield return new WaitForSeconds(.4f);
-		_sprite.color = new Color(_sprite.material.color.r, _sprite.material.color.g, _sprite.material.color.b, _outsideColor.a);
+		_sprite.color = new Color(_sprite.material.color.r, _sprite.material.color.g, _sprite.material.color.b, _insideColor.a);
 		yield return null;
 	}
 }

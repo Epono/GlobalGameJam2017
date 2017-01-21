@@ -8,10 +8,18 @@ public enum EWarshipState { INSIDE, OUTSIDE };
 public class WarshipScript : MonoBehaviour
 {
 	[SerializeField]
+	Animator animator;
+
+	[SerializeField]
 	private ViewZoneScript _vzScript;
 
 	[SerializeField]
 	private SpriteRenderer _warshipSprite;
+	public SpriteRenderer WarshipSprite
+	{
+		get { return _warshipSprite; }
+		set { _warshipSprite = value; }
+	}
 
 	private Color _insideColor;
 	private Color _outsideColor;
@@ -61,10 +69,10 @@ public class WarshipScript : MonoBehaviour
 			break;
 		}
 	}
-	public void Init(EWarshipType type, EWarshipState state)
+	public void Init( EWarshipType type, EWarshipState state )
 	{
 		Init(type);
-		switch ( state )
+		switch( state )
 		{
 		case EWarshipState.INSIDE:
 			_warshipSprite.color = _insideColor;
@@ -79,33 +87,48 @@ public class WarshipScript : MonoBehaviour
 	}
 	void Start()
 	{
+
+		animator.SetBool("isAlive", true);
 		_attributes = new WarshipDefault();
-		_insideColor = new Color(255, 255, 255, 100 / 255);//en dur :'(
-		_outsideColor = new Color(255, 255, 255, 255);
 
-		_warshipSprite.color = _insideColor; //TODO: enlever ça
-    }
+		_insideColor = _warshipSprite.color;
+		_outsideColor = new Color(255f, 255f, 255f, 255f);
+	}
 
-	public bool ok;
+
+	public bool Ascend_Descend;
+	public bool ShowViewZone;
 	void Update()
 	{
-		if( ok )
+		//Mettre dans l'event getDamage
+		animator.SetBool("isAlive", false);
+		if( ShowViewZone )
+		{
+			StartCoroutine("EnableViewZone");
+		}
+		if( Ascend_Descend )
 		{
 			if( _state == EWarshipState.OUTSIDE )
 			{
-				_vzScript.StartDescendCoroutine();
+				if( ShowViewZone )
+				{
+					_vzScript.StartDescendCoroutine();
+				}
 				StartCoroutine("DescendCoroutine");
-				ok = false;
+				Ascend_Descend = false;
 			}
 			else
 			{
-				_vzScript.StartAscendCoroutine();
+				if( ShowViewZone )
+				{
+					_vzScript.StartAscendCoroutine();
+				}
 				StartCoroutine("AscendCoroutine");
-				ok = false;
+				Ascend_Descend = false;
 			}
-
 		}
 	}
+
 
 	public IEnumerator AscendCoroutine()
 	{
@@ -137,4 +160,13 @@ public class WarshipScript : MonoBehaviour
 		yield return null;
 
 	}
+	public IEnumerator EnableViewZone()
+	{
+		_vzScript.Sprite.enabled = true;
+		yield return new WaitForSeconds(4);
+		_vzScript.Sprite.enabled = false;
+		ShowViewZone = false;
+		yield return null;
+	}
+
 }
