@@ -11,8 +11,6 @@ public class RocketCollisionScript : MonoBehaviour {
     {
 
         var hit = collision.gameObject;
-        if(hit == null)
-            Debug.Log("Fuck you! hit");
         if(hit.tag == "WARSHIP")
         {
             var health = hit.GetComponent<PlayerMovementScript>();
