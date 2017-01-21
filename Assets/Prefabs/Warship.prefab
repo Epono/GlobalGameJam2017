@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434301681463662}
   - component: {fileID: 114854295972432280}
+  - component: {fileID: 95197482306114906}
   m_Layer: 0
   m_Name: Warship
   m_TagString: WARSHIP
@@ -190,7 +191,7 @@ Transform:
   m_GameObject: {fileID: 1669136723734410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 5, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 0.3}
   m_Children:
   - {fileID: 4014508948516400}
   - {fileID: 4380485305599534}
@@ -304,6 +305,23 @@ PolygonCollider2D:
     - - {x: 1, y: -0.2}
       - {x: 0, y: 0}
       - {x: 1, y: 0.2}
+--- !u!95 &95197482306114906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38698b8a2625fa94c900a92dafdf9ada, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114127000024327666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,10 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce5450b3e9b4e48a222f12ddb9faa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 95197482306114906}
   _vzScript: {fileID: 114241274144982594}
   _warshipSprite: {fileID: 212999216268687136}
   _type: 0
+  _state: 0
   ok: 0
 --- !u!212 &212021391903367920
 SpriteRenderer:
@@ -477,6 +496,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5f057bc407067804e8a8e14dd3ae9803, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 255, g: 255, b: 255, a: 0}
   m_FlipX: 0
   m_FlipY: 0

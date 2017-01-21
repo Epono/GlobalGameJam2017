@@ -96,35 +96,31 @@ public class WarshipScript : MonoBehaviour
 
 
 	public bool ok;
-	void Update()
-	{
-		if( ok )
-		{
+    void Update()
+    {
+        if (ok)
+        {
 
-			_vzScript.StartAscendCoroutine();
-			StartCoroutine("AscendCoroutine");
-			ok = false;
+
+            //Mettre dans l'event getDamage
+            // animator.SetBool("isAlive", false);
+
+
+            if (_state == EWarshipState.OUTSIDE)
+            {
+                _vzScript.StartDescendCoroutine();
+                StartCoroutine("DescendCoroutine");
+                ok = false;
+            }
+            else
+            {
+                _vzScript.StartAscendCoroutine();
+                StartCoroutine("AscendCoroutine");
+                ok = false;
+            }
+
         }
-
-        //Mettre dans l'event getDamage
-        animator.SetBool("isAlive", false);
-    
-
-			if( _state == EWarshipState.OUTSIDE )
-			{
-				_vzScript.StartDescendCoroutine();
-				StartCoroutine("DescendCoroutine");
-				ok = false;
-			}
-			else
-			{
-				_vzScript.StartAscendCoroutine();
-				StartCoroutine("AscendCoroutine");
-				ok = false;
-			}
-
-		}
-	
+    }
 
 	public IEnumerator AscendCoroutine()
 	{
