@@ -88,7 +88,7 @@ public class WarshipScript : MonoBehaviour
 	void Start()
 	{
 
-		animator.SetBool("isAlive", true);
+		//animator.SetBool("isAlive", true);
 		_attributes = new WarshipDefault();
 
 		_insideColor = _warshipSprite.color;
@@ -101,7 +101,7 @@ public class WarshipScript : MonoBehaviour
 	void Update()
 	{
 		//Mettre dans l'event getDamage
-		animator.SetBool("isAlive", false);
+		//animator.SetBool("isAlive", false);
 		if( ShowViewZone )
 		{
 			StartCoroutine("EnableViewZone");
