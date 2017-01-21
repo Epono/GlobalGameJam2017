@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ObstacleIsleScript : ObstacleTemplateScript {
 
+    public int ID ;
     [SerializeField]
     List<Sprite> sprites;
+
+    [SerializeField]
+    List<GameObject> prefabs;
+
+    
 
     public RuntimeAnimatorController forcedAnimator;
 
     // Use this for initialization
     void Start() {
+      
         //Debug.Log("tamere");
         //int randomAnimation = Random.Range(0, 4);
         //gameObject.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];

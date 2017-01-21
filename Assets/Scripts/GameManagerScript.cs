@@ -27,6 +27,11 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     List<Sprite> sprites;
 
+    [SerializeField]
+    List<Collider> colliders;
+    [SerializeField]
+    List<GameObject> isleGameObject;
+
     private Vector2 mapSize;
 	private float obstaclesDensity;
 	private float obstacleIsleProbability;
@@ -145,18 +150,40 @@ public class GameManagerScript : MonoBehaviour
 				    float randomRotationZ = Random.value * 360;
                     int randomAnimation = Random.Range(0, 4);
 
+                    GameObject go;
+                    //GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
+                    if(randomAnimation  == 0)
+                    {
+                        go = Instantiate(isleGameObject[0], islePosition, Quaternion.identity);
+                    }
+                    else if (randomAnimation == 1)
+                    {
+                        go = Instantiate(isleGameObject[1], islePosition, Quaternion.identity);
+                    }
+                    else if (randomAnimation == 2)
+                    {
+                        go = Instantiate(isleGameObject[2], islePosition, Quaternion.identity);
+                    }
+                    else if (randomAnimation == 3)
+                    {
+                        go = Instantiate(isleGameObject[3], islePosition, Quaternion.identity);
+                    }
+                    else
+                    {
+                        go = new GameObject();
+                    }
 
-                    GameObject go = Instantiate(obstaclePrefab, islePosition, Quaternion.identity);
                     go.transform.eulerAngles = new Vector3(go.transform.eulerAngles.x, go.transform.eulerAngles.y, randomRotationZ);
                     go.transform.localScale = new Vector3((float)(go.transform.localScale.x * obstacleSizeModifier), (float)(go.transform.localScale.y * obstacleSizeModifier), 1);
                     ObstacleTemplateScript ots = go.GetComponent<ObstacleTemplateScript>();
 
-				    if (obstaclePrefab == obstacleIslePrefab)
+				    /*if (obstaclePrefab == obstacleIslePrefab)
 				    {
+                        go.GetComponent<ObstacleIsleScript>().ID = randomAnimation;
 				        go.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
 				        go.GetComponent<Animator>().runtimeAnimatorController =
 				            (RuntimeAnimatorController) Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
-				    }
+				    }*/
 
 
                     // J'essaye de faire qu'on voit que la carte est sans limite
