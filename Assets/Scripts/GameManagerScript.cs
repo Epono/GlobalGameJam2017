@@ -194,19 +194,19 @@ public class GameManagerScript : MonoBehaviour
 
 				    if (islePosition2 != islePosition)
 				    {
-                        GameObject goo = Instantiate(obstaclePrefab, islePosition2, Quaternion.identity);
-                        goo.transform.eulerAngles = new Vector3(goo.transform.eulerAngles.x, goo.transform.eulerAngles.y, randomRotationZ);
-                        goo.transform.localScale = new Vector3((float)(goo.transform.localScale.x * obstacleSizeModifier), (float)(goo.transform.localScale.y * obstacleSizeModifier), 1);
-                        ObstacleTemplateScript otss = goo.GetComponent<ObstacleTemplateScript>();
+            //            GameObject goo = Instantiate(obstaclePrefab, islePosition2, Quaternion.identity);
+            //            goo.transform.eulerAngles = new Vector3(goo.transform.eulerAngles.x, goo.transform.eulerAngles.y, randomRotationZ);
+            //            goo.transform.localScale = new Vector3((float)(goo.transform.localScale.x * obstacleSizeModifier), (float)(goo.transform.localScale.y * obstacleSizeModifier), 1);
+            //            ObstacleTemplateScript otss = goo.GetComponent<ObstacleTemplateScript>();
 
-				        if (obstaclePrefab == obstacleIslePrefab)
-				        {
-				            goo.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
-				            goo.GetComponent<Animator>().runtimeAnimatorController =
-				                (RuntimeAnimatorController) Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
-				        }
+				        //if (obstaclePrefab == obstacleIslePrefab)
+				        //{
+				        //    goo.GetComponent<SpriteRenderer>().sprite = sprites[randomAnimation];
+				        //    goo.GetComponent<Animator>().runtimeAnimatorController =
+				        //        (RuntimeAnimatorController) Resources.Load("Animations/Isle_" + (randomAnimation + 1) + "_animator");
+				        //}
 
-				        obstacles.Add(otss);
+				        //obstacles.Add(otss);
                     }
 				}
 			}

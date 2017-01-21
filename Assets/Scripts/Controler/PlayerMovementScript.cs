@@ -22,7 +22,7 @@ public class PlayerMovementScript : NetworkBehaviour
     
     void Start()
     {
-        attributes = script.getAttributes();
+        attributes = script.Attributes;
     }
 
     void Update()
