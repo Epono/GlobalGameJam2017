@@ -5,9 +5,6 @@ using UnityEngine;
 public class RocketScript : MonoBehaviour
 {
 	[SerializeField]
-	private SpriteRenderer _sprite;
-
-	[SerializeField]
 	private int _damages;
 	public int Damages
 	{
@@ -48,19 +45,5 @@ public class RocketScript : MonoBehaviour
 			_range = value;
 		}
 	}
-
-
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
+    
 }
