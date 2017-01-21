@@ -87,24 +87,11 @@ GameObject:
   - component: {fileID: 4434301681463662}
   - component: {fileID: 114854295972432280}
   - component: {fileID: 95197482306114906}
+  - component: {fileID: 114292004916094696}
+  - component: {fileID: 114840978645414222}
   m_Layer: 0
   m_Name: Warship
   m_TagString: WARSHIP
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1697430770688832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4380485305599534}
-  m_Layer: 0
-  m_Name: Radar
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,19 +143,6 @@ Transform:
   m_Father: {fileID: 4434301681463662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4380485305599534
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697430770688832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4434301681463662}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4402284888769460
 Transform:
   m_ObjectHideFlags: 1
@@ -181,7 +155,7 @@ Transform:
   m_Children:
   - {fileID: 4941549977284176}
   m_Father: {fileID: 4434301681463662}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4434301681463662
 Transform:
@@ -194,7 +168,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.3}
   m_Children:
   - {fileID: 4014508948516400}
-  - {fileID: 4380485305599534}
   - {fileID: 4958174510272334}
   - {fileID: 4402284888769460}
   m_Father: {fileID: 0}
@@ -239,7 +212,7 @@ Transform:
   - {fileID: 4594642736113682}
   - {fileID: 4966719879258952}
   m_Father: {fileID: 4434301681463662}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4966719879258952
 Transform:
@@ -347,6 +320,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 212555495112132560}
   _vzCollider: {fileID: 114127000024327666}
+--- !u!114 &114292004916094696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 208
+    i1: 131
+    i2: 180
+    i3: 217
+    i4: 239
+    i5: 13
+    i6: 212
+    i7: 196
+    i8: 202
+    i9: 49
+    i10: 143
+    i11: 247
+    i12: 224
+    i13: 134
+    i14: 90
+    i15: 89
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114571526343576214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,6 +369,17 @@ MonoBehaviour:
   speed: 1
   timeScan: 5
   DoScan: 0
+--- !u!114 &114840978645414222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669136723734410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef27a9377f61e546a5ad935abee3e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114849936864653992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,7 +409,8 @@ MonoBehaviour:
   _warshipSprite: {fileID: 212999216268687136}
   _type: 0
   _state: 0
-  ok: 0
+  Ascend_Descend: 0
+  ShowViewZone: 0
 --- !u!212 &212021391903367920
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -435,7 +452,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1150092955470904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -496,6 +513,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5f057bc407067804e8a8e14dd3ae9803, type: 3}
-  m_Color: {r: 255, g: 255, b: 255, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
