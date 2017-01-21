@@ -280,6 +280,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
     type: 2}
   bulletSpawn: {fileID: 4310931813804578}
+  script: {fileID: 114854295972432280}
   MovementMagicNumber: 0.05
 --- !u!114 &114854295972432280
 MonoBehaviour:
