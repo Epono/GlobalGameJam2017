@@ -75,12 +75,10 @@ public class PlayerMovementScript : NetworkBehaviour
             yield return new WaitForSeconds(0.5f);
             if (loose && isLocalPlayer)
             {
-                Debug.LogError("LOOSE");
                 SceneManager.LoadScene("YOULOOSE");
             }
             if (loose && !isLocalPlayer)
             {
-                Debug.LogError("WIN");
                 SceneManager.LoadScene("YOUWIN");
             }
         }
@@ -88,12 +86,10 @@ public class PlayerMovementScript : NetworkBehaviour
         {
             if (loose && isLocalPlayer)
             {
-                Debug.LogError("LOOSE");
                 SceneManager.LoadScene("YOULOOSE");
             }
             if (loose && !isLocalPlayer)
             {
-                Debug.LogError("WIN");
                 SceneManager.LoadScene("YOUWIN");
             }
         }
@@ -154,9 +150,6 @@ public class PlayerMovementScript : NetworkBehaviour
 			scanScript.RunScan();
             GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
         }
-
-        Debug.LogError(currentHealth);
-
     }
 	
     [Command]
