@@ -515,6 +515,7 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4241359820714944}
   script: {fileID: 114680522593404052}
+  scanScript: {fileID: 114078207371587048}
   MovementMagicNumber: 0.05
 --- !u!114 &114216905141900962
 MonoBehaviour:
