@@ -17,6 +17,12 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SerializeField]
 	private ScanScript scanScript;
 
+    [SerializeField]
+    private AudioClip rocketLaunchedClip;
+
+    [SerializeField]
+    private AudioClip rocketExplosedClip;
+
 	private WarshipAttributes attributes;
 
 	[SyncVar]
@@ -107,6 +113,8 @@ public class PlayerMovementScript : NetworkBehaviour
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
 
+        GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
+
 		// Spawn the bullet on the Clients
 		NetworkServer.Spawn(bullet);
 
@@ -171,6 +179,6 @@ public class PlayerMovementScript : NetworkBehaviour
 	{
 		yield return new WaitForSeconds(0.5f);
 		_canFire = true;
-		yield return null;
+        yield return null;
 	}
 }
