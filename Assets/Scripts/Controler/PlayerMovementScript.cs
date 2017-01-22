@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : NetworkBehaviour
 {
@@ -17,7 +18,10 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SerializeField]
 	private ScanScript scanScript;
 
-	private WarshipAttributes attributes;
+	public WarshipAttributes attributes;
+
+    //pour le test de la fin
+    bool isAlive = true;
 
 	[SyncVar]
 	private int currentHealth;
@@ -28,13 +32,18 @@ public class PlayerMovementScript : NetworkBehaviour
 	private bool shootSonar = false;
 	private bool _canFire = true;
 
+    
 
-	float  x = 0.0f;
+
+    float  x = 0.0f;
 	public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
 	
 	void Start()
 	{
-		attributes = script.Attributes;
+        
+        //ID = new NetworkSceneId();
+
+        attributes = script.Attributes;
 		currentHealth = attributes.HealthPoint;
 	}
 
@@ -91,6 +100,12 @@ public class PlayerMovementScript : NetworkBehaviour
 			//gestion coolDown
 			scanScript.RunScan();
 		}
+
+        if(NetworkServer.localConnections.Count == 1)
+        {
+            Network.Disconnect();
+            SceneManager.LoadScene("YOUWIN");
+        }
 	}
 
 	// This [Command] code is called on the Client …
@@ -133,7 +148,12 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			currentHealth = 0;
 			Debug.Log("Dead!");
-			//LUCAS BOOLEAN ICI
+            //LUCAS BOOLEAN ICI
+            isAlive = false;
+            Network.Disconnect();
+            SceneManager.LoadScene("YOULOOSE");
+            
+
 		}
 	}
 

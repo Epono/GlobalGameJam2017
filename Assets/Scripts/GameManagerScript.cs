@@ -36,13 +36,18 @@ public class GameManagerScript : MonoBehaviour
 
 	private List<ObstacleTemplateScript> obstacles;
 
-	//private List<GameObject> pickUps;
+    //private List<GameObject> pickUps;
+
+    //private List<PlayerMovementScript> warshipsInfos;
+   // private int nbPlayer = 1;
 
     [SerializeField]
     EventManager eventManager;
 
     void Start ()
     {
+        //warshipsInfos = new List<PlayerMovementScript>();
+
         NetworkManagerScriptCustom nmsc = GetComponent<NetworkManagerScriptCustom>();
         if (nmsc.isServer)
         {
@@ -217,5 +222,10 @@ public class GameManagerScript : MonoBehaviour
                 goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y + 20, goo.transform.position.z);
             }
         }
+
+      // if()
+
+        
+
     }
 }
