@@ -18,14 +18,12 @@ public class RocketCollisionScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
 	{
-        gameObject.GetComponent<AudioSource>().PlayOneShot(rocketExplosedClip);
-
-        SoundsSingletonScript.playClip();
+        SoundsSingletonScript.playClip(AudioClips.rocketExplosedClip);
 
 		var hit = collision.gameObject;
 		if(hit.tag == "WARSHIP")
 		{
-            gameObject.GetComponent<AudioSource>().PlayOneShot(warshipHurtClip);
+            SoundsSingletonScript.playClip(AudioClips.warshipHurtClip);
 			var health = hit.GetComponent<PlayerMovementScript>();
 			if (health != null)
 			{
@@ -33,7 +31,7 @@ public class RocketCollisionScript : MonoBehaviour {
 			}
         } else if(hit.tag == "ISLAND")
 		{
-            gameObject.GetComponent<AudioSource>().PlayOneShot(isleHurtClip);
+            SoundsSingletonScript.playClip(AudioClips.isleHurtClip);
 			var health = hit.GetComponent<IsleAttribute>();
 			if (health != null)
 			{

@@ -3,26 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AudioClips {
+    isleHurtClip,
+    rocketLaunchedClip,
+    rocketExplosedClip,
+    sonarLaunchedClip,
+    warshipHurtClip,
+    warshipCollisionClip
+}
+
 public class SoundsSingletonScript : MonoBehaviour {
 
     private static SoundsSingletonScript instance = null;
 
     private static AudioSource audioSource;
 
-    [SerializeField]
-    private static AudioClip rocketLaunchedClip;
-
-    [SerializeField]
-    private static AudioClip sonarLaunchedClip;
-
-    [SerializeField]
-    private static AudioClip rocketExplosedClip;
-
-    [SerializeField]
-    private static AudioClip isleHurtClip;
-
-    [SerializeField]
-    private static AudioClip warshipHurtClip;
+    static AudioClip isleHurtClip;
+    static AudioClip rocketLaunchedClip;
+    static AudioClip rocketExplosedClip;
+    static AudioClip sonarLaunchedClip;
+    static AudioClip warshipHurtClip;
+    static AudioClip warshipCollisionClip;
 
     // Game Instance Singleton
     public static SoundsSingletonScript Instance
@@ -43,15 +44,51 @@ public class SoundsSingletonScript : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start()
-    {
+    void Start() {
         audioSource = gameObject.GetComponent<AudioSource>();
+
+
+        isleHurtClip = (AudioClip)Resources.Load("Audio/Sounds/isle_hurt");
+
+        rocketLaunchedClip = (AudioClip)Resources.Load("Audio/Sounds/rocket_launch");
+        rocketExplosedClip = (AudioClip)Resources.Load("Audio/Sounds/rocket_explosion");
+
+        sonarLaunchedClip = (AudioClip)Resources.Load("Audio/Sounds/sonar");
+
+        warshipHurtClip = (AudioClip)Resources.Load("Audio/Sounds/warship_hurt");
+        warshipCollisionClip = (AudioClip)Resources.Load("Audio/Sounds/warship_collision");
     }
 
-    public static void playClip()
-    {
-        audioSource.enabled = true;
-        audioSource.PlayOneShot(isleHurtClip, Single.MaxValue);
+    public static void playClip(AudioClips audioClip) {
+        switch(audioClip) {
+            case AudioClips.isleHurtClip:
+                audioSource.clip = isleHurtClip;
+                break;
+            case AudioClips.rocketLaunchedClip:
+                audioSource.clip = rocketLaunchedClip;
+                break;
+            case AudioClips.rocketExplosedClip:
+                audioSource.clip = rocketExplosedClip;
+                break;
+            case AudioClips.sonarLaunchedClip:
+                audioSource.clip = sonarLaunchedClip;
+                break;
+            case AudioClips.warshipHurtClip:
+                audioSource.clip = warshipHurtClip;
+                break;
+            case AudioClips.warshipCollisionClip:
+                audioSource.clip = warshipCollisionClip;
+                break;
+        }
+        // Tentative pour jouer 2 sons pendant la même frame
+        //if (audioSource.isPlaying)
+        //{
+        //    AudioSource a = new AudioSource();
+        //    a.clip = audioSource.clip;
+        //    a.enabled = true;
+        //    a.Play();
+        //}
+        audioSource.Play();
     }
 
 }
