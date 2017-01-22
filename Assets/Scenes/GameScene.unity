@@ -1971,6 +1971,22 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114252177934357246, guid: 24ce6652349e8f3408b49c9389d5ab42,
+        type: 2}
+      propertyPath: m_CustomConfig
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114252177934357246, guid: 24ce6652349e8f3408b49c9389d5ab42,
+        type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
+        type: 2}
+    - target: {fileID: 114011696762754114, guid: 24ce6652349e8f3408b49c9389d5ab42,
+        type: 2}
+      propertyPath: showGUI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114542000810642110, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
