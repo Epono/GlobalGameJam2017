@@ -14,6 +14,9 @@ public class PlayerMovementScript : NetworkBehaviour
     [SerializeField]
     private WarshipScript script;
 
+    [SerializeField]
+    private ScanScript scanScript;
+
     private WarshipAttributes attributes;
 
     [SyncVar]
@@ -22,6 +25,7 @@ public class PlayerMovementScript : NetworkBehaviour
     private Vector2 forward = new Vector2(0,1);
     private Vector2 aim;
     private bool shootFire = false;
+    private bool shootSonar = false;
 
     float  x = 0.0f;
     public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
@@ -36,7 +40,8 @@ public class PlayerMovementScript : NetworkBehaviour
     {
         x = infos.move;
         aim = infos.aimAngle;
-        shootFire = infos.inputListing[Action.FIRE];
+        shootFire  = infos.inputListing[Action.FIRE];
+        shootSonar = infos.inputListing[Action.WAVESHOT];
     }
 
     void Update()
@@ -72,6 +77,12 @@ public class PlayerMovementScript : NetworkBehaviour
                 CmdFire(forward);
                 attributes.Ammunition--;
             }
+        }
+
+        if(shootSonar)
+        {
+            //gestion coolDown
+            scanScript.RunScan();
         }
     }
 
