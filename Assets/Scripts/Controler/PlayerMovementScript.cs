@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +19,9 @@ public class PlayerMovementScript : NetworkBehaviour
 
     [SerializeField]
     private AudioClip rocketLaunchedClip;
+
+    [SerializeField]
+    private HealthUI healthUIScript;
 
     [SerializeField]
     private AudioClip rocketExplosedClip;
@@ -197,8 +199,11 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 
 		currentHealth -= amount;
-		attributes.HealthPoint -= currentHealth;
-		Debug.Log(currentHealth);
+		attributes.HealthPoint  = currentHealth;
+
+        healthUIScript.UpdateHealth(currentHealth, attributes.MaxHealth);
+
+        Debug.Log(currentHealth);
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
