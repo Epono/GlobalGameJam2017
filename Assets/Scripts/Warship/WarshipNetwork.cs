@@ -11,7 +11,7 @@ public class WarshipNetwork : NetworkBehaviour
 		if(!isLocalPlayer)
 		{
 			_warship = GetComponent<WarshipScript>();
-			//_warship.WarshipSprite.enabled = false;
+			_warship.WarshipSprite.enabled = false;
 		}
 	}
 
