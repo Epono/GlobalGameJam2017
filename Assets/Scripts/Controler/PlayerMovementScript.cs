@@ -4,8 +4,6 @@ using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public class PlayerMovementScript : NetworkBehaviour
 {
 	[SerializeField]
@@ -20,13 +18,16 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SerializeField]
 	private ScanScript scanScript;
 
+    [SerializeField]
+    private AudioClip rocketLaunchedClip;
 
-	
+    [SerializeField]
+    private AudioClip rocketExplosedClip;
+
+	public WarshipAttributes attributes;
 
     //pour le test de la fin
     bool isAlive = true;
-
-	private WarshipAttributes attributes;
 
 	[SyncVar]
 	private int currentHealth;
@@ -37,13 +38,18 @@ public class PlayerMovementScript : NetworkBehaviour
 	private bool shootSonar = false;
 	private bool _canFire = true;
 
+    
 
-	float  x = 0.0f;
+
+    float  x = 0.0f;
 	public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
 	
 	void Start()
 	{
-		attributes = script.Attributes;
+        
+        //ID = new NetworkSceneId();
+
+        attributes = script.Attributes;
 		currentHealth = attributes.HealthPoint;
 	}
 
@@ -101,12 +107,11 @@ public class PlayerMovementScript : NetworkBehaviour
 			scanScript.RunScan();
 		}
 
-        if(NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
+        if(NetworkServer.localConnections.Count == 1)
         {
             Network.Disconnect();
             SceneManager.LoadScene("YOUWIN");
         }
-
 	}
 
 	// This [Command] code is called on the Client …
@@ -122,6 +127,8 @@ public class PlayerMovementScript : NetworkBehaviour
 		
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
+
+        GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
 
 		// Spawn the bullet on the Clients
 		NetworkServer.Spawn(bullet);
@@ -149,12 +156,10 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			currentHealth = 0;
 			Debug.Log("Dead!");
-
             //LUCAS BOOLEAN ICI
             isAlive = false;
             Network.Disconnect();
             SceneManager.LoadScene("YOULOOSE");
-            
 		}
 	}
 
@@ -181,10 +186,8 @@ public class PlayerMovementScript : NetworkBehaviour
 				if (health.HealthPoint <= 0)
 				{
 					Destroy(hit);
-                    //change sprit of islands
-                    Network.Disconnect();
-                    SceneManager.LoadScene("YOULOOSE");
-                }
+					//change sprit of islands
+				}
 			}
 		}
 
@@ -194,6 +197,6 @@ public class PlayerMovementScript : NetworkBehaviour
 	{
 		yield return new WaitForSeconds(0.5f);
 		_canFire = true;
-		yield return null;
+        yield return null;
 	}
 }
