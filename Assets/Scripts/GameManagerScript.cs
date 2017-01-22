@@ -54,6 +54,8 @@ public class GameManagerScript : MonoBehaviour
             //Debug.Log("client");
         }
 
+        manager.GetComponent<NetworkManagerHUD>().showGUI = false;
+
         Random.InitState(nmsc.seed);
 
         Instantiate(eventManager);
