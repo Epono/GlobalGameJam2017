@@ -107,7 +107,7 @@ public class PlayerMovementScript : NetworkBehaviour
 			scanScript.RunScan();
 		}
 
-        if(NetworkServer.localConnections.Count == 1)
+        if(NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
         {
             Network.Disconnect();
             SceneManager.LoadScene("YOUWIN");
