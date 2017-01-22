@@ -145,11 +145,16 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             //SwitchRocket();
-            infoList[Action.SWITCH_ROCKET] = true;
+            infoList[Action.IMMERGE] = true;
         }
+		else
+		{
+			//Accelerate();
+			infoList[Action.IMMERGE] = false;
+		}
 
-        //move = x;
-        infoToTransmit = new InfoSend(x, new Vector2(aimX, aimY), infoList);
+		//move = x;
+		infoToTransmit = new InfoSend(x, new Vector2(aimX, aimY), infoList);
        // Debug.Log(x);
        mov.readInfo(infoToTransmit);
 
