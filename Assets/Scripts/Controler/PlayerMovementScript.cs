@@ -120,7 +120,9 @@ public class PlayerMovementScript : NetworkBehaviour
 	public IEnumerator ImmergeCoroutine()
 	{
 		_state = true;//OUTSIDE
-		CmdImmerge(_state);
+        animator.SetBool("isImmerge", false);
+        SoundsSingletonScript.playClip(AudioClips.warshipEmergingClip);
+        CmdImmerge(_state);
 		int step = 5;
 		int min = 100;
 		int max = 255;
@@ -132,7 +134,10 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 		
 		_state = false;//INSIDE
-		CmdImmerge(_state);
+
+        animator.SetBool("isImmerge", true);
+        SoundsSingletonScript.playClip(AudioClips.warshipDivingClip);
+        CmdImmerge(_state);
 		attributes.Ammunition = 15;
 		for( var i = 0 ; i < step ; ++i )
 		{
@@ -296,7 +301,8 @@ public class PlayerMovementScript : NetworkBehaviour
 		Debug.Log(currentHealth);
 		if( currentHealth <= 0 )
 		{
-			currentHealth = 0;
+            animator.SetBool("IsAlive", false);
+            currentHealth = 0;
 			loose = true;
 			Debug.Log("Dead!");
 			//LUCAS BOOLEAN ICI
