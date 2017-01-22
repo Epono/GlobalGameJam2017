@@ -51,7 +51,7 @@ namespace Assets.Scripts.GUI.Misc {
 
         public void OnExitParty()
         {
-            SceneManager.LoadScene("Acceuil", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
     }
 }

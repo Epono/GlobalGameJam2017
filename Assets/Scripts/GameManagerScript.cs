@@ -47,9 +47,29 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     NetworkManager manager;
 
+    [SerializeField]
+    GameObject networkStartPositionPrefab;
+
+    void Awake()
+    {
+        mapSize = new Vector2(20, 20);
+
+        float x1 = Random.value * mapSize.x;
+        float y1 = Random.value * mapSize.y;
+
+        float x2 = Random.value * mapSize.x;
+        float y2 = Random.value * mapSize.y;
+
+        GameObject.Instantiate(networkStartPositionPrefab, new Vector3(x1, y1, 0), Quaternion.identity);
+        GameObject.Instantiate(networkStartPositionPrefab, new Vector3(x2, y2, 0), Quaternion.identity);
+    }
+
     void Start ()
     {
         //warshipsInfos = new List<PlayerMovementScript>();
+
+        // Initialisation des variables de configuration de la partie (en dur, ouais)
+
 
         NetworkManagerScriptCustom nmsc = GetComponent<NetworkManagerScriptCustom>();
         if(nmsc.isServer) {
@@ -58,6 +78,7 @@ public class GameManagerScript : MonoBehaviour
         } else {
             //Debug.Log("client");
         }
+
 
         manager.GetComponent<NetworkManagerHUD>().showGUI = false;
 
@@ -70,8 +91,6 @@ public class GameManagerScript : MonoBehaviour
 		obstacles = new List<ObstacleTemplateScript>();
 		//pickUps = new List<GameObject>();
 
-		// Initialisation des variables de configuration de la partie (en dur, ouais)
-		mapSize = new Vector2(20, 20);
 		obstaclesDensity = 0.20f;
 
         GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);

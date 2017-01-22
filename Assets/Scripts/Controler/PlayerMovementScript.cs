@@ -48,6 +48,7 @@ public class PlayerMovementScript : NetworkBehaviour
 	private bool shootFire = false;
 	private bool shootSonar = false;
 	private bool _canFire = true;
+    private float currentSpeed = 0.5f;
 
     
     float x = 0.0f;
@@ -69,6 +70,19 @@ public class PlayerMovementScript : NetworkBehaviour
         aim = infos.aimAngle;
         shootFire = infos.inputListing[Action.FIRE];
         shootSonar = infos.inputListing[Action.WAVESHOT];
+        if (infos.inputListing[Action.ACCELERATE])
+        {
+            currentSpeed += 0.1f;
+            if(currentSpeed >= 1.5f)
+                currentSpeed = 1.5f;
+        }
+        if (infos.inputListing[Action.DECCELERATE])
+        {
+            currentSpeed -= 0.1f;
+            if (currentSpeed <= 0.2f)
+                currentSpeed = 0.2f;
+        }
+            
     }
 
     public IEnumerator tempo()
@@ -104,7 +118,7 @@ public class PlayerMovementScript : NetworkBehaviour
         if(loose)
             StartCoroutine("tempo");
 
-        //transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
+        transform.Translate(0, currentSpeed * Time.deltaTime * 3.0f, 0);
         bulletSpawn.position = transform.position;
         bulletSpawn.position += new Vector3(forward.x, forward.y, 0) * 0.5f;
         if (!isLocalPlayer)
@@ -112,13 +126,13 @@ public class PlayerMovementScript : NetworkBehaviour
             return;
 		}
 
-		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-		var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+		//var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+		//var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
 		
 
 		transform.Rotate(0, 0, -x);
-		transform.Translate(0, y, 0);
+		//transform.Translate(0, y, 0);
 
         if (aim.magnitude >= 0.5f)
         {
@@ -157,7 +171,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			//gestion coolDown
 			scanScript.RunScan();
-            GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
+            SoundsSingletonScript.playClip(AudioClips.sonarLaunchedClip);
         }
     }
 	
@@ -179,8 +193,9 @@ public class PlayerMovementScript : NetworkBehaviour
 			bulletPrefab,
 			bulletSpawn.position,
 			bulletSpawn.rotation);
-		
-		// Add velocity to the bullet
+
+        // Add velocity to the bullet
+        bullet.transform.rotation.SetLookRotation(bullet.transform.position + new Vector3(forward.x, forward.y, 0));
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
         
         SoundsSingletonScript.playClip(AudioClips.rocketLaunchedClip);
@@ -217,6 +232,7 @@ public class PlayerMovementScript : NetworkBehaviour
             loose = true;
 			Debug.Log("Dead!");
             //LUCAS BOOLEAN ICI
+
             
            
 		}
@@ -245,7 +261,8 @@ public class PlayerMovementScript : NetworkBehaviour
 			{
 				health.HealthPoint--;
 				TakeDamage(attributes.CollisionDamage);
-				if (health.HealthPoint <= 0)
+                hit.GetComponent<SpriteRenderer>().sprite = health.spriteList[health.HealthPoint - 1];
+                if (health.HealthPoint <= 0)
 				{
 					Destroy(hit);
 					//change sprit of islands
