@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class IsleAttribute {
+public class IsleAttribute : MonoBehaviour{
     
     private int _healthPoint = 3;
     public int HealthPoint
