@@ -125,12 +125,21 @@ public class PlayerController : MonoBehaviour {
             // Deccelerate();
             infoList[Action.DECCELERATE] = true;
         }
+        else
+        {
+            infoList[Action.DECCELERATE] = false;
+        }
         //RB
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
 
             //Accelerate();
             infoList[Action.ACCELERATE] = true;
+        }
+        else
+        {
+            //Accelerate();
+            infoList[Action.ACCELERATE] = false;
         }
         //X
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
