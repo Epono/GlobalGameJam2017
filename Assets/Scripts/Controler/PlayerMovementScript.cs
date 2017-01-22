@@ -219,13 +219,14 @@ public class PlayerMovementScript : NetworkBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+        SoundsSingletonScript.playClip(AudioClips.warshipCollisionClip);
 
         Debug.Log("lolilol");
 
 		var hit = collision.gameObject;
 		if (hit.tag == "WARSHIP")
 		{
-			var health = hit.GetComponent<PlayerMovementScript>();
+            var health = hit.GetComponent<PlayerMovementScript>();
 			if (health != null)
 			{
 				health.TakeDamage(attributes.CollisionDamage);
@@ -234,7 +235,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 		else if (hit.tag == "ISLAND")
 		{
-			var health = hit.GetComponent<IsleAttribute>();
+            var health = hit.GetComponent<IsleAttribute>();
 			if (health != null)
 			{
 				health.HealthPoint--;
