@@ -24,7 +24,10 @@ public class PlayerMovementScript : NetworkBehaviour
     [SerializeField]
     private AudioClip rocketExplosedClip;
 
-	public WarshipAttributes attributes;
+    [SerializeField]
+    private AudioClip sonarLaunchedClip;
+
+    public WarshipAttributes attributes;
 
     //pour le test de la fin
     bool isAlive = true;
@@ -105,7 +108,8 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			//gestion coolDown
 			scanScript.RunScan();
-		}
+            GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
+        }
 
         if(NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
         {
