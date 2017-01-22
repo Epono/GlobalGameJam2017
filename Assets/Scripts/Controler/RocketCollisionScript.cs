@@ -25,7 +25,9 @@ public class RocketCollisionScript : MonoBehaviour {
             if (health != null)
             {
                 health.HealthPoint--;
-                if(health.HealthPoint <=0 )
+              
+                hit.GetComponent<SpriteRenderer>().sprite = health.spriteList[health.HealthPoint - 1];
+                if (health.HealthPoint <=0 )
                 {
                     Destroy(hit);
                 }

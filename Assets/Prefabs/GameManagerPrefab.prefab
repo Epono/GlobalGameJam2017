@@ -54,8 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
-  obstacleIslePrefab: {fileID: 1547089813953212, guid: a4cf8e8b3dfcad74abd9d5105d2189ef,
-    type: 2}
   obstacleLightHousePrefab: {fileID: 1460398334023386, guid: fa0ac2bfdd63f734382b2f39bbab3e5f,
     type: 2}
   obstacleOilSlickPrefab: {fileID: 1278985735554074, guid: d58d78cc8ac58ce4e90d5cb9dda30e4f,
@@ -63,17 +61,11 @@ MonoBehaviour:
   obstacleSchoolOfSharksPrefab: {fileID: 1432202950878230, guid: 0cea85d364f9f224fb9c744110500661,
     type: 2}
   seaPrefab: {fileID: 1280382086354984, guid: 02e43efcc8e448e49bbe52eee2ac4c88, type: 2}
-  sprites:
-  - {fileID: 21300000, guid: b3307e98e1138014f9b82462ddb6ad65, type: 3}
-  - {fileID: 21300000, guid: 3fb02ae96c81fc140af7b6c130cbcccf, type: 3}
-  - {fileID: 21300000, guid: 0a5d0831f3b8cfa44a0539e1117e2860, type: 3}
-  - {fileID: 21300000, guid: 5ecbd9781cfa2e64bb80367db9a56e75, type: 3}
-  colliders: []
   isleGameObject:
-  - {fileID: 1656705065990054, guid: 6c57428a7f7da4a41858d803860749d6, type: 2}
-  - {fileID: 1749335216876962, guid: 33c6d1262fc274d4ebe57c40c3dee2b5, type: 2}
-  - {fileID: 1021871787823174, guid: b4b258d172fb8074eaccac2289d7ae7b, type: 2}
-  - {fileID: 1330679713624536, guid: 883f4a73b81f20648a7d2e1fdff40f91, type: 2}
+  - {fileID: 1549759256299246, guid: 85a4070bd27227740b0c828a677462f2, type: 2}
+  - {fileID: 1425991352081742, guid: 4ae0714a8e5cd3d43baa8dcffd6b6d03, type: 2}
+  - {fileID: 1763000144620418, guid: ac01d68967b658e48bd8dc1522aaea19, type: 2}
+  - {fileID: 1605350789712876, guid: 2ebb440aa6afe05408d3eeddf00e462d, type: 2}
   eventManager: {fileID: 114298517492088296, guid: 6936e4a075e9cc942a45a76494b01ffc,
     type: 2}
 --- !u!114 &114489091989601322
@@ -87,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe797ac30b66894487da511c57009f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 0
 --- !u!114 &114997609300811682
 MonoBehaviour:
   m_ObjectHideFlags: 1
