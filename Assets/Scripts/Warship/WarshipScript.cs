@@ -7,8 +7,8 @@ public enum EWarshipState { INSIDE, OUTSIDE };
 
 public class WarshipScript : MonoBehaviour
 {
-	[SerializeField]
-	Animator animator;
+	//[SerializeField]
+	//Animator animator;
 
 	[SerializeField]
 	private ViewZoneScript _vzScript;

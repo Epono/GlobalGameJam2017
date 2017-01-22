@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerMovementScript : NetworkBehaviour
 {
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private GameObject bulletPrefab;
 
     [SerializeField]
@@ -31,17 +34,12 @@ public class PlayerMovementScript : NetworkBehaviour
     private AudioClip sonarLaunchedClip;
 
     public WarshipAttributes attributes;
-
-    //pour le test de la fin
-    bool isAlive = true;
-
-
+    
     [SyncVar]
     private int currentHealth;
 
     [SyncVar]
     private bool loose = false;
-
 
     [SyncVar]
     private Vector2 forward = new Vector2(0,1);
@@ -59,8 +57,10 @@ public class PlayerMovementScript : NetworkBehaviour
     {
         attributes = script.Attributes;
         currentHealth = attributes.HealthPoint;
+
         healthUIScript = FindObjectOfType<HealthUI>();
         // Debug.LogError(NetworkServer.connections.Count);
+
     }
 
     public void readInfo(InfoSend infos)

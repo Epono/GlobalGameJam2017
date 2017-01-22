@@ -189,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4916005917140692}
   - component: {fileID: 212444591843780020}
+  - component: {fileID: 95297292489993798}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -573,6 +574,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95297292489993798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750495900789754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 895f2654f6846d340a00913b7902e8a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114060796635310688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -615,6 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733abdd892b570040894833882469e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 95297292489993798}
   bulletPrefab: {fileID: 1179857924021874, guid: 74b4ccf23143d43408da25c4642166cb,
     type: 2}
   bulletSpawn: {fileID: 4241359820714944}
@@ -702,7 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce5450b3e9b4e48a222f12ddb9faa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   _vzScript: {fileID: 114913675518836094}
   _warshipSprite: {fileID: 212444591843780020}
   _type: 0
