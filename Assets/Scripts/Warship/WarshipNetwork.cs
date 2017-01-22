@@ -12,6 +12,7 @@ public class WarshipNetwork : NetworkBehaviour
 		{
 			_warship = GetComponent<WarshipScript>();
 			_warship.WarshipSprite.enabled = false;
+			_warship.TargetSprite.enabled = false;
 		}
 	}
 

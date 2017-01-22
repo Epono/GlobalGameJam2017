@@ -59,6 +59,7 @@ public class PlayerMovementScript : NetworkBehaviour
     {
         attributes = script.Attributes;
         currentHealth = attributes.HealthPoint;
+        healthUIScript = FindObjectOfType<HealthUI>();
         // Debug.LogError(NetworkServer.connections.Count);
     }
 
