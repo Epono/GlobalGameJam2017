@@ -46,12 +46,12 @@ public class GameManagerScript : MonoBehaviour
         NetworkManagerScriptCustom nmsc = GetComponent<NetworkManagerScriptCustom>();
         if (nmsc.isServer)
         {
-            Debug.Log("serveur");
+            //Debug.Log("serveur");
             nmsc.seed = DateTime.Now.Millisecond;
         }
         else
         {
-	        Debug.Log("client");
+	        //Debug.Log("client");
         }
 
         Random.InitState(nmsc.seed);

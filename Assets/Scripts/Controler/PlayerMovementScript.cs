@@ -67,11 +67,11 @@ public class PlayerMovementScript : NetworkBehaviour
 
         if (shootFire)
         {
-            //if (attributes.Ammunition > 0)
-            //{
+            if (attributes.Ammunition > 0)
+            {
                 CmdFire(forward);
                 attributes.Ammunition--;
-            //}
+            }
         }
     }
 

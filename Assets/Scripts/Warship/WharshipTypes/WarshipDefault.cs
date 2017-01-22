@@ -6,7 +6,7 @@ public class WarshipDefault : WarshipAttributes
 {
 	public WarshipDefault()
 	{
-		Ammunition		= 10;
+		Ammunition		= 50;
 		HealthPoint		= 10;
         MaxHealth       = 10;
         CollisionDamage = 5;

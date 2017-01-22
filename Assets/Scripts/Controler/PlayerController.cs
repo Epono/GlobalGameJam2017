@@ -88,20 +88,28 @@ public class PlayerController : MonoBehaviour {
             infoList[Action.WAVESHOT] = true;
         }
 
+        else
+        {
+            infoList[Action.WAVESHOT] = false;
+        }
+
         if (fire > 0.5)
         {
             infoList[Action.FIRE] = true;
         }
 
+        else
+        {
+            infoList[Action.FIRE] = false;
+        }
+
         if (x < 0.0f)
         {
             infoList[Action.LEFT] = true;
-            Debug.Log(x);
         }
         else if (x > 0.0f)
         {
             infoList[Action.RIGHT] = true;
-            Debug.Log(x);
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
