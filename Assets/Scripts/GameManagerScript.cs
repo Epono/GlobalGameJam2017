@@ -44,23 +44,25 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     EventManager eventManager;
 
+    [SerializeField]
+    NetworkManager manager;
+
     void Start ()
     {
         //warshipsInfos = new List<PlayerMovementScript>();
 
         NetworkManagerScriptCustom nmsc = GetComponent<NetworkManagerScriptCustom>();
-        if (nmsc.isServer)
-        {
+        if(nmsc.isServer) {
             //Debug.Log("serveur");
             nmsc.seed = DateTime.Now.Millisecond;
-        }
-        else
-        {
-	        //Debug.Log("client");
+        } else {
+            //Debug.Log("client");
         }
 
+        manager.GetComponent<NetworkManagerHUD>().showGUI = false;
+
         Random.InitState(nmsc.seed);
-        
+
         Instantiate(eventManager);
 
         // Initialisation des listes

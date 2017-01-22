@@ -68,6 +68,7 @@ MonoBehaviour:
   - {fileID: 1605350789712876, guid: 2ebb440aa6afe05408d3eeddf00e462d, type: 2}
   eventManager: {fileID: 114298517492088296, guid: 6936e4a075e9cc942a45a76494b01ffc,
     type: 2}
+  manager: {fileID: 114252177934357246, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
 --- !u!114 &114489091989601322
 MonoBehaviour:
   m_ObjectHideFlags: 1
