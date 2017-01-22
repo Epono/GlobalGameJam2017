@@ -47,6 +47,9 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     NetworkManager manager;
 
+    [SerializeField]
+    GameObject networkStartPositionPrefab;
+
     void Start ()
     {
         //warshipsInfos = new List<PlayerMovementScript>();
@@ -58,6 +61,15 @@ public class GameManagerScript : MonoBehaviour
         } else {
             //Debug.Log("client");
         }
+
+        float x1 = Random.value * mapSize.x;
+        float y1 = Random.value * mapSize.y;
+
+        float x2 = Random.value * mapSize.x;
+        float y2 = Random.value * mapSize.y;
+
+        GameObject.Instantiate(networkStartPositionPrefab, new Vector3(x1, y1, 0), Quaternion.identity);
+        GameObject.Instantiate(networkStartPositionPrefab, new Vector3(x2, y2, 0), Quaternion.identity);
 
         manager.GetComponent<NetworkManagerHUD>().showGUI = false;
 
