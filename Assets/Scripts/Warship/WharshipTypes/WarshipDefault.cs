@@ -6,8 +6,10 @@ public class WarshipDefault : WarshipAttributes
 {
 	public WarshipDefault()
 	{
-		Ammunition		= 10;
-		HealthPoint		= 10;
+		Ammunition		= 50;
+		HealthPoint		= 100;
+        MaxHealth       = 100;
+        CollisionDamage = 5;
 		Position		= Vector3.zero;
 		Rotation		= new Quaternion(0, 0, 0, 0);
 		Shield			= 0;

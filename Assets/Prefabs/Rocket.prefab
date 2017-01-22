@@ -24,9 +24,12 @@ GameObject:
   - component: {fileID: 114416688265264604}
   - component: {fileID: 212225798183355288}
   - component: {fileID: 60796658228989288}
+  - component: {fileID: 114708566584970952}
+  - component: {fileID: 114841324549896220}
+  - component: {fileID: 82687366851796902}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: ROCKET
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179857924021874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31020266, y: 0.5460595, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -0.293307, y: 0.06677637, z: 0}
+  m_LocalScale: {x: 0.04, y: 0.07, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -120,6 +123,86 @@ PolygonCollider2D:
       - {x: -0.17999999, y: -1.38}
       - {x: -0.03, y: -1.3}
       - {x: 0.28, y: -1.4}
+--- !u!82 &82687366851796902
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179857924021874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114416688265264604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +255,35 @@ MonoBehaviour:
     i15: 203
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114708566584970952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179857924021874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4825a167b5cc9104f8fa92fb6ad5a11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketAttributes: {fileID: 114841324549896220}
+  rocketExplosedClip: {fileID: 8300000, guid: 8ffb4554d9b0ffe46ada55e8715a5d4a, type: 3}
+  isleHurtClip: {fileID: 8300000, guid: e5f5224f22cd9c944bf59cf27737720d, type: 3}
+  warshipHurtClip: {fileID: 8300000, guid: 492a9d6ebbe2a5049a74ddba6408b119, type: 3}
+--- !u!114 &114841324549896220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179857924021874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1b7a3bcd169a943a2c3471ae3f92cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damages: 10
+  _speed: 10
+  _range: 10
 --- !u!212 &212225798183355288
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -202,7 +314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c791d8ad13d4bd4419e472ea65272051, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

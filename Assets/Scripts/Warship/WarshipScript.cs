@@ -88,7 +88,7 @@ public class WarshipScript : MonoBehaviour
 	void Start()
 	{
 
-		animator.SetBool("isAlive", true);
+		//animator.SetBool("isAlive", true);
 		_attributes = new WarshipDefault();
 
 		_insideColor = _warshipSprite.color;
