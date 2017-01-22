@@ -44,8 +44,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     EventManager eventManager;
 
-    [SerializeField]
-    NetworkManager manager;
+    //[SerializeField]
+    //NetworkManager manager;
 
     [SerializeField]
     GameObject networkStartPositionPrefab;
@@ -80,7 +80,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
 
-        manager.GetComponent<NetworkManagerHUD>().showGUI = false;
+        //manager.GetComponent<NetworkManagerHUD>().showGUI = false;
 
         Random.InitState(nmsc.seed);
 
