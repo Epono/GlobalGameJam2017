@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
@@ -28,13 +29,14 @@ public class NetworkManagerCustom : NetworkManager {
 
     void OnLevelWasLoaded(int level) {
         if (level == 0) {
-            SetupMenuSceneButtons();
+            StartCoroutine(SetupMenuSceneButtons());
         } else if (level == 1) {
             SetupOtherSceneButtons();
         }
     }
 
-    void SetupMenuSceneButtons() {
+    IEnumerator SetupMenuSceneButtons() {
+        yield return new WaitForSeconds(0.3f);
         GameObject.Find("Button Host").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("Button Host").GetComponent<Button>().onClick.AddListener(StartupHost);
 
