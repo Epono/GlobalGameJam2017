@@ -57,11 +57,10 @@ public class PlayerMovementScript : NetworkBehaviour
     {
         attributes = script.Attributes;
         currentHealth = attributes.HealthPoint;
-<<<<<<< HEAD
-=======
+
         healthUIScript = FindObjectOfType<HealthUI>();
         // Debug.LogError(NetworkServer.connections.Count);
->>>>>>> de30bb12de70942bd39f1e542fe2a57eeed7c75e
+
     }
 
     public void readInfo(InfoSend infos)
