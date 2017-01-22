@@ -217,6 +217,7 @@ public class PlayerMovementScript : NetworkBehaviour
             loose = true;
 			Debug.Log("Dead!");
             //LUCAS BOOLEAN ICI
+
             
            
 		}
@@ -245,7 +246,8 @@ public class PlayerMovementScript : NetworkBehaviour
 			{
 				health.HealthPoint--;
 				TakeDamage(attributes.CollisionDamage);
-				if (health.HealthPoint <= 0)
+                hit.GetComponent<SpriteRenderer>().sprite = health.spriteList[health.HealthPoint - 1];
+                if (health.HealthPoint <= 0)
 				{
 					Destroy(hit);
 					//change sprit of islands
