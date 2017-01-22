@@ -5,22 +5,6 @@ using UnityEngine;
 public class ScanCollider : MonoBehaviour
 {
 	[SerializeField]
-	private Transform _target;
-
-	[SerializeField]
-	private Transform _scanTransform;
-
-	[SerializeField]
-	private Transform _spawnRocket;
-	public Transform SpawnRocket
-	{
-		get { return _spawnRocket; }
-		set { _spawnRocket = value; }
-	}
-
-	private Vector2 _oldSpawnRocket;
-
-	[SerializeField]
 	private Vector2 _defaultScale;
 	public Vector2 DefaultScale
 	{
@@ -29,12 +13,10 @@ public class ScanCollider : MonoBehaviour
 	}
 
 	[SerializeField]
-	private float _angle;
-	public float Angle
-	{
-		get { return _angle; }
-		set { _angle = value; }
-	}
+	private Transform _scanTransform;
+
+	[SerializeField]
+	private GameObject _discoveryPoint;
 
 	private Vector2 _warshipPosition;
 	public Vector2 WarshipPosition
@@ -51,12 +33,11 @@ public class ScanCollider : MonoBehaviour
 	void Start()
 	{
 		_defaultScale = _scanTransform.localScale;
-		_oldSpawnRocket = _spawnRocket.position;
 	}
 
 	void Update()
 	{
-		if( DoScan )//Voir Quand activer le radar
+		if( DoScan )
 		{
 			_timeSpend += Time.deltaTime;
 			if( timeScan - _timeSpend <= 0f )
@@ -75,31 +56,33 @@ public class ScanCollider : MonoBehaviour
 
 			}
 		}
-		else
-		{
-			MoveScan();
-		}
-
 	}
 
 	public void OnTriggerEnter2D( Collider2D col )
 	{
-		if( col.tag.Equals("WARSHIP") )
+		if(DoScan)
 		{
-
-
-
-			Debug.Log("Collider warship");
-			//Instanciate le point de repere
+			if( col.tag.Equals("WARSHIP") )
+			{
+				//verify with Raycast
+				coroutine = ShowShip(col.transform.position);
+				StartCoroutine(coroutine);
+				Debug.Log("Collider warship");
+				//Instanciate le point de repere
+			}
 		}
+		
 	}
 
-	public void MoveScan()
+	private IEnumerator coroutine;
+
+	public IEnumerator ShowShip(Vector2 position)
 	{
-		var v1 = new Vector2(_target.position.x,_target.position.y)  - _warshipPosition;
-		var v2 = new Vector2(_spawnRocket.position.x,_spawnRocket.position.y) - _warshipPosition;
-		_angle = Vector2.Angle(_target.position, _spawnRocket.position);
-		_scanTransform.Rotate(0, 0, _angle);
-	}
+		var go = Instantiate(_discoveryPoint) as GameObject;
+		go.transform.position = position;
+		//start anim
+		yield return new WaitForSeconds(3f);
+		Destroy(go);
 
+	}
 }

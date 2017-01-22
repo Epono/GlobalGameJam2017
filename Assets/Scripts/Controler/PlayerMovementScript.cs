@@ -19,7 +19,8 @@ public class PlayerMovementScript : NetworkBehaviour
     [SyncVar]
     private int currentHealth;
 
-    private Vector2 forward;
+    private Vector2 forward = new Vector2(0,1);
+    private Vector2 aim;
     private bool shootFire = false;
 
     float  x = 0.0f;
@@ -34,8 +35,7 @@ public class PlayerMovementScript : NetworkBehaviour
     public void readInfo(InfoSend infos)
     {
         x = infos.move;
-        forward = infos.aimAngle;
-        forward.Normalize();
+        aim = infos.aimAngle;
         shootFire = infos.inputListing[Action.FIRE];
     }
 
@@ -47,23 +47,31 @@ public class PlayerMovementScript : NetworkBehaviour
             return;
         }
 
-        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
         
 
         transform.Rotate(0, 0, -x);
         transform.Translate(0, y, 0);
-
         
 
-        if (!shootFire)
+        if(aim.magnitude >= 0.5f)
         {
-            //if (attributes.Ammunition > 0)
-            //{
+            forward = aim.normalized;
+            forward.y *= -1;
+            bulletSpawn.position = transform.position;
+            bulletSpawn.position += new Vector3(forward.x, forward.y, 0)*0.5f;
+        }
+        
+
+        if (shootFire)
+        {
+            if (attributes.Ammunition > 0)
+            {
                 CmdFire(forward);
                 attributes.Ammunition--;
-            //}
+            }
         }
     }
 
@@ -77,9 +85,7 @@ public class PlayerMovementScript : NetworkBehaviour
             bulletPrefab,
             bulletSpawn.position,
             bulletSpawn.rotation);
-
-        //get Axis From Joystick
-        //front of warship at first
+        
         // Add velocity to the bullet
         bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
 

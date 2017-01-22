@@ -3,7 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IsleAttribute : MonoBehaviour{
+    [SerializeField]
+    public List<Sprite> spriteList;
+    void Start()
+    {
+        
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteList[2];
+       
+       
+    }
+
+    void Update()
+    {
+        //gameObject.GetComponent<SpriteRenderer>().sprite = spriteList[2];
+    }
     
+
     private int _healthPoint = 3;
     public int HealthPoint
     {
