@@ -157,7 +157,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			//gestion coolDown
 			scanScript.RunScan();
-            GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
+            SoundsSingletonScript.playClip(AudioClips.sonarLaunchedClip);
         }
     }
 	
