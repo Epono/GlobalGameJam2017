@@ -91,7 +91,7 @@ public class GameManagerScript : MonoBehaviour
 		obstacles = new List<ObstacleTemplateScript>();
 		//pickUps = new List<GameObject>();
 
-		obstaclesDensity = 0.20f;
+		obstaclesDensity = 0.10f;
 
         GameObject sea = Instantiate(seaPrefab, new Vector3(mapSize.x / 2, mapSize.y / 2, 0), Quaternion.identity);
 
