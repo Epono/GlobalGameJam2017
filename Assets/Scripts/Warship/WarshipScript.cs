@@ -110,44 +110,58 @@ public class WarshipScript : MonoBehaviour
 	{
 		//Mettre dans l'event getDamage
 		//animator.SetBool("isAlive", false);
-		if( ShowViewZone )
-		{
-			StartCoroutine("EnableViewZone");
-		}
-		if( Ascend_Descend )
-		{
-			if( _state == EWarshipState.OUTSIDE )
-			{
-				if( ShowViewZone )
-				{
-					_vzScript.StartDescendCoroutine();
-				}
-				StartCoroutine("DescendCoroutine");
-				Ascend_Descend = false;
-			}
-			else
-			{
-				if( ShowViewZone )
-				{
-					_vzScript.StartAscendCoroutine();
-				}
-				StartCoroutine("AscendCoroutine");
-				Ascend_Descend = false;
-			}
-		}
+		//if( ShowViewZone )
+		//{
+		//	StartCoroutine("EnableViewZone");
+		//}
+		//if( Ascend_Descend )
+		//{
+		//	if( _state == EWarshipState.OUTSIDE )
+		//	{
+		//		if( ShowViewZone )
+		//		{
+		//			_vzScript.StartDescendCoroutine();
+		//		}
+		//		StartCoroutine("DescendCoroutine");
+		//		Ascend_Descend = false;
+		//	}
+		//	else
+		//	{
+		//		if( ShowViewZone )
+		//		{
+		//			_vzScript.StartAscendCoroutine();
+		//		}
+		//		StartCoroutine("AscendCoroutine");
+		//		Ascend_Descend = false;
+		//	}
+		//}
+	}
+
+	public void RunImmerge()
+	{
+		StartCoroutine("ImmergeCoroutine");
+	}
+
+	public void RunAscend()
+	{
+		StartCoroutine("AscendCoroutine");
+	}
+	public void RunDescend()
+	{
+		StartCoroutine("DescendCoroutine");
 	}
 
 
 	public IEnumerator AscendCoroutine()
 	{
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _insideColor.a + 0.1f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _insideColor.a + 0.2f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _insideColor.a + 0.3f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _insideColor.a + 0.4f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _outsideColor.a);
 		_state = EWarshipState.OUTSIDE;
 		yield return null;
@@ -156,13 +170,13 @@ public class WarshipScript : MonoBehaviour
 	public IEnumerator DescendCoroutine()
 	{
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _outsideColor.a - 0.1f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _outsideColor.a - 0.2f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _outsideColor.a - 0.4f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _outsideColor.a - 0.6f);
-		yield return new WaitForSeconds(.4f);
+		yield return new WaitForSeconds(.2f);
 		_warshipSprite.color = new Color(_warshipSprite.material.color.r, _warshipSprite.material.color.g, _warshipSprite.material.color.b, _insideColor.a);
 		_state = EWarshipState.INSIDE;
 		yield return null;
