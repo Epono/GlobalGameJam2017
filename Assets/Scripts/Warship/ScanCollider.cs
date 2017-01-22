@@ -81,7 +81,7 @@ public class ScanCollider : MonoBehaviour
 		var go = Instantiate(_discoveryPoint) as GameObject;
 		go.transform.position = position;
 		//start anim
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(3f);
 		Destroy(go);
 
 	}
