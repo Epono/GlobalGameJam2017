@@ -36,7 +36,7 @@ public class GameManagerScript : MonoBehaviour
 
 	private List<ObstacleTemplateScript> obstacles;
 
-	private List<GameObject> pickUps;
+	//private List<GameObject> pickUps;
 
     [SerializeField]
     EventManager eventManager;
@@ -56,45 +56,12 @@ public class GameManagerScript : MonoBehaviour
 
         Random.InitState(nmsc.seed);
         
-        // NE PAS SUPPRIMER
-        //camera.pixelRect = new Rect(Screen.width - 595, Screen.height - 655, 590, 590);
         Instantiate(eventManager);
-        float targetaspect = 9.0f / 9.0f;
-
-        // determine the game window's current aspect ratio
-        float windowaspect = (float)Screen.width / (float)Screen.height;
-
-        // current viewport height should be scaled by this amount
-        float scaleheight = windowaspect / targetaspect;
-
-        // if scaled height is less than current height, add letterbox
-        if(scaleheight < 1.0f) {
-            Rect rect = camera.rect;
-
-            rect.width = 1.0f;
-            rect.height = scaleheight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleheight) / 2.0f;
-
-            camera.rect = rect;
-        } else // add pillarbox
-          {
-            float scalewidth = 1.0f / scaleheight;
-
-            Rect rect = camera.rect;
-
-            rect.width = scalewidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scalewidth) / 2.0f;
-            rect.y = 0;
-
-            camera.rect = rect;
-        }
 
         // Initialisation des listes
         warships = new List<GameObject>();
 		obstacles = new List<ObstacleTemplateScript>();
-		pickUps = new List<GameObject>();
+		//pickUps = new List<GameObject>();
 
 		// Initialisation des variables de configuration de la partie (en dur, ouais)
 		mapSize = new Vector2(20, 20);
@@ -223,6 +190,32 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update ()
 	{
+        foreach(GameObject goo in GameObject.FindGameObjectsWithTag("WARSHIP")) {
+            if(goo.transform.position.x > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x - 20, goo.transform.position.y, goo.transform.position.z);
+            } else if(goo.transform.position.x < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x + 20, goo.transform.position.y, goo.transform.position.z);
+            }
 
+            if(goo.transform.position.y > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y - 20, goo.transform.position.z);
+            } else if(goo.transform.position.y < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y + 20, goo.transform.position.z);
+            }
+        }
+
+        foreach(GameObject goo in GameObject.FindGameObjectsWithTag("ROCKET")) {
+            if(goo.transform.position.x > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x - 20, goo.transform.position.y, goo.transform.position.z);
+            } else if(goo.transform.position.x < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x + 20, goo.transform.position.y, goo.transform.position.z);
+            }
+
+            if(goo.transform.position.y > 20) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y - 20, goo.transform.position.z);
+            } else if(goo.transform.position.y < 0) {
+                goo.transform.position = new Vector3(goo.transform.position.x, goo.transform.position.y + 20, goo.transform.position.z);
+            }
+        }
     }
 }

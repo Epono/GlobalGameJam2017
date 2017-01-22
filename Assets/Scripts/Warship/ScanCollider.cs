@@ -5,6 +5,9 @@ using UnityEngine;
 public class ScanCollider : MonoBehaviour
 {
 	[SerializeField]
+	private Transform _target;
+
+	[SerializeField]
 	private Transform _scanTransform;
 
 	[SerializeField]
@@ -83,6 +86,9 @@ public class ScanCollider : MonoBehaviour
 	{
 		if( col.tag.Equals("WARSHIP") )
 		{
+
+
+
 			Debug.Log("Collider warship");
 			//Instanciate le point de repere
 		}
@@ -90,11 +96,10 @@ public class ScanCollider : MonoBehaviour
 
 	public void MoveScan()
 	{
-		Vector2 vOld = _oldSpawnRocket - _warshipPosition;
-		Vector2 vNew = new Vector2(_spawnRocket.position.x, _spawnRocket.position.y) - _warshipPosition;
-		_angle = Vector2.Angle(vOld, vNew);
-		_scanTransform.eulerAngles = new Vector3(0, 0, _angle);
-
+		var v1 = new Vector2(_target.position.x,_target.position.y)  - _warshipPosition;
+		var v2 = new Vector2(_spawnRocket.position.x,_spawnRocket.position.y) - _warshipPosition;
+		_angle = Vector2.Angle(_target.position, _spawnRocket.position);
+		_scanTransform.Rotate(0, 0, _angle);
 	}
 
 }

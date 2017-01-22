@@ -23,6 +23,17 @@ public abstract class WarshipAttributes
 		set	{_healthPoint = value;}
 	}
 
+    private int maxSpeed = 15;
+    private int minSpeed = 2;
+
+    [SerializeField]
+    private int _collisionDamage = 5;
+    public int CollisionDamage
+    {
+        get { return _collisionDamage; }
+        set { _collisionDamage = value; }
+    }
+
     [SerializeField]
     private int _maxHealth;
     public int MaxHealth
