@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +19,9 @@ public class PlayerMovementScript : NetworkBehaviour
 
     [SerializeField]
     private AudioClip rocketLaunchedClip;
+
+    [SerializeField]
+    private HealthUI healthUIScript;
 
     [SerializeField]
     private AudioClip rocketExplosedClip;
@@ -102,6 +104,8 @@ public class PlayerMovementScript : NetworkBehaviour
             StartCoroutine("tempo");
 
         //transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
+        bulletSpawn.position = transform.position;
+        bulletSpawn.position += new Vector3(forward.x, forward.y, 0) * 0.5f;
         if (!isLocalPlayer)
 		{
             return;
@@ -197,8 +201,11 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 
 		currentHealth -= amount;
-		attributes.HealthPoint -= currentHealth;
-		Debug.Log(currentHealth);
+		attributes.HealthPoint  = currentHealth;
+
+        healthUIScript.UpdateHealth(currentHealth, attributes.MaxHealth);
+
+        Debug.Log(currentHealth);
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
