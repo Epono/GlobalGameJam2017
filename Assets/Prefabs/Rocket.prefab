@@ -269,6 +269,7 @@ MonoBehaviour:
   rocketAttributes: {fileID: 114841324549896220}
   rocketExplosedClip: {fileID: 8300000, guid: 8ffb4554d9b0ffe46ada55e8715a5d4a, type: 3}
   isleHurtClip: {fileID: 8300000, guid: e5f5224f22cd9c944bf59cf27737720d, type: 3}
+  warshipHurtClip: {fileID: 8300000, guid: 492a9d6ebbe2a5049a74ddba6408b119, type: 3}
 --- !u!114 &114841324549896220
 MonoBehaviour:
   m_ObjectHideFlags: 1

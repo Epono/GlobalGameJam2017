@@ -69,7 +69,7 @@ public class ScanCollider : MonoBehaviour
 				if( Vector3.Distance(col.transform.position, _warshipTransform.position) < 0.5f )
 					return;
 				//verify with Raycast
-				coroutine = ShowPoint(col.transform.position);
+				coroutine = ShowPoint(col);
 				StartCoroutine(coroutine);
 				Debug.Log("Collider warship");
 				//Instanciate le point de repere
@@ -80,11 +80,12 @@ public class ScanCollider : MonoBehaviour
 
 	private IEnumerator coroutine;
 
-	public IEnumerator ShowPoint(Vector2 position)
+	public IEnumerator ShowPoint(Collider2D col)
 	{
 		var go = Instantiate(_discoveryPoint) as GameObject;
-		go.transform.position = position;
-		yield return new WaitForSeconds(3f);
+		go.transform.position = col.transform.position;
+		go.transform.parent = col.transform;
+		yield return new WaitForSeconds(5f);
 		Destroy(go);
 
 	}

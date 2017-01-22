@@ -601,6 +601,7 @@ MonoBehaviour:
   scanScript: {fileID: 114078207371587048}
   rocketLaunchedClip: {fileID: 8300000, guid: f5adaa45071f3b34db5487a8e2377c7a, type: 3}
   rocketExplosedClip: {fileID: 8300000, guid: 8ffb4554d9b0ffe46ada55e8715a5d4a, type: 3}
+  sonarLaunchedClip: {fileID: 8300000, guid: 28350a18152de6e4caa20b42f6ec3231, type: 3}
   MovementMagicNumber: 0.05
 --- !u!114 &114216905141900962
 MonoBehaviour:

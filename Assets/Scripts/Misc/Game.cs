@@ -48,5 +48,10 @@ namespace Assets.Scripts.GUI.Misc {
         public void OnExitGame() {
             Application.Quit();
         }
+
+        public void OnExitParty()
+        {
+            SceneManager.LoadScene("Acceuil", LoadSceneMode.Single);
+        }
     }
 }
