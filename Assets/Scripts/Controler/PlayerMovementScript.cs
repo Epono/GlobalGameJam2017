@@ -140,12 +140,16 @@ public class PlayerMovementScript : NetworkBehaviour
 			if( _canFire )
 			{
 				_canFire = false;
-				if( attributes.Ammunition > 0 )
-				{
-					CmdFire(forward);
-					attributes.Ammunition--;
-				}
-				StartCoroutine("OnBulletFired");
+			    if (attributes.Ammunition > 0)
+			    {
+			        CmdFire(forward);
+			        attributes.Ammunition--;
+			    }
+			    else
+			    {
+                    SoundsSingletonScript.playClip(AudioClips.noAmmosClip);
+                }
+                StartCoroutine("OnBulletFired");
 			}
 		}
 
@@ -179,10 +183,10 @@ public class PlayerMovementScript : NetworkBehaviour
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
         
-        GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
-        
-		// Spawn the bullet on the Clients
-		NetworkServer.Spawn(bullet);
+        SoundsSingletonScript.playClip(AudioClips.rocketLaunchedClip);
+
+        // Spawn the bullet on the Clients
+        NetworkServer.Spawn(bullet);
 
 		// Destroy the bullet after 2 seconds
 		Destroy(bullet, 2.0f);
@@ -220,13 +224,14 @@ public class PlayerMovementScript : NetworkBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+        SoundsSingletonScript.playClip(AudioClips.warshipCollisionClip);
 
         Debug.Log("lolilol");
 
 		var hit = collision.gameObject;
 		if (hit.tag == "WARSHIP")
 		{
-			var health = hit.GetComponent<PlayerMovementScript>();
+            var health = hit.GetComponent<PlayerMovementScript>();
 			if (health != null)
 			{
 				health.TakeDamage(attributes.CollisionDamage);
@@ -235,7 +240,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 		else if (hit.tag == "ISLAND")
 		{
-			var health = hit.GetComponent<IsleAttribute>();
+            var health = hit.GetComponent<IsleAttribute>();
 			if (health != null)
 			{
 				health.HealthPoint--;

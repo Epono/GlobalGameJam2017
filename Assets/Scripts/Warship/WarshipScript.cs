@@ -14,6 +14,14 @@ public class WarshipScript : MonoBehaviour
 	private ViewZoneScript _vzScript;
 
 	[SerializeField]
+	private SpriteRenderer _targetSprite;
+	public SpriteRenderer TargetSprite
+	{
+		get { return _targetSprite; }
+		set { _targetSprite = value; }
+	}
+
+	[SerializeField]
 	private SpriteRenderer _warshipSprite;
 	public SpriteRenderer WarshipSprite
 	{
