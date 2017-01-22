@@ -104,6 +104,8 @@ public class PlayerMovementScript : NetworkBehaviour
             StartCoroutine("tempo");
 
         //transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
+        bulletSpawn.position = transform.position;
+        bulletSpawn.position += new Vector3(forward.x, forward.y, 0) * 0.5f;
         if (!isLocalPlayer)
 		{
             return;
