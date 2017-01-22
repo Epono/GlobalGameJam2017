@@ -35,12 +35,13 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SyncVar]
 	private int currentHealth;
 
-	private Vector2 forward = new Vector2(0,1);
+    [SyncVar]
+    private Vector2 forward = new Vector2(0,1);
+
 	private Vector2 aim;
 	private bool shootFire = false;
 	private bool shootSonar = false;
 	private bool _canFire = true;
-
     
 
 
@@ -49,10 +50,7 @@ public class PlayerMovementScript : NetworkBehaviour
 	
 	void Start()
 	{
-        
-        //ID = new NetworkSceneId();
-
-        attributes = script.Attributes;
+		attributes = script.Attributes;
 		currentHealth = attributes.HealthPoint;
 	}
 
@@ -66,10 +64,13 @@ public class PlayerMovementScript : NetworkBehaviour
 
 	void Update()
 	{
-		//transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
-		if (!isLocalPlayer)
+        //forward = lol.forWard;
+        //transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
+        bulletSpawn.position = transform.position;
+        bulletSpawn.position += new Vector3(forward.x, forward.y, 0) * 0.5f;
+        if (!isLocalPlayer)
 		{
-			return;
+            return;
 		}
 
 		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
@@ -79,18 +80,23 @@ public class PlayerMovementScript : NetworkBehaviour
 
 		transform.Rotate(0, 0, -x);
 		transform.Translate(0, y, 0);
-		
 
-		if(aim.magnitude >= 0.5f)
-		{
-			forward = aim.normalized;
-			forward.y *= -1;
-			bulletSpawn.position = transform.position;
-			bulletSpawn.position += new Vector3(forward.x, forward.y, 0)*0.5f;
-		}
-		
+        if (aim.magnitude >= 0.5f)
+        {
+            forward = aim.normalized;
+            forward.y *= -1;
+            
+        }
+        else
+        {
+            forward.x = bulletSpawn.position.x;
+            forward.y = bulletSpawn.position.y;
+        }
+        forward.Normalize();
+        if(isClient)
+            CmdAim(forward);
 
-		if (shootFire)
+        if (shootFire)
 		{
 			if( _canFire )
 			{
@@ -110,30 +116,37 @@ public class PlayerMovementScript : NetworkBehaviour
 			scanScript.RunScan();
             GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
         }
-
-        if(NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
+        if (NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
         {
             Network.Disconnect();
             SceneManager.LoadScene("YOUWIN");
         }
-	}
+    }
 
-	// This [Command] code is called on the Client …
-	// … but it is run on the Server!
-	[Command]
+    [Command]
+    void CmdAim(Vector2 forward)
+    {
+        bulletSpawn.position = transform.position;
+        bulletSpawn.position += new Vector3(forward.x, forward.y, 0) * 0.5f;
+    }
+
+
+    // This [Command] code is called on the Client …
+    // … but it is run on the Server!
+    [Command]
 	void CmdFire(Vector2 forward)
 	{
-		// Create the Bullet from the Bullet Prefab
-		var bullet = (GameObject)Instantiate(
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
 			bulletPrefab,
 			bulletSpawn.position,
 			bulletSpawn.rotation);
 		
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
-
+        
         GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
-
+        
 		// Spawn the bullet on the Clients
 		NetworkServer.Spawn(bullet);
 
@@ -153,6 +166,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			return;
 		}
+
 		currentHealth -= amount;
 		attributes.HealthPoint -= currentHealth;
 		Debug.Log(currentHealth);
@@ -169,6 +183,8 @@ public class PlayerMovementScript : NetworkBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+
+        Debug.Log("lolilol");
 
 		var hit = collision.gameObject;
 		if (hit.tag == "WARSHIP")
