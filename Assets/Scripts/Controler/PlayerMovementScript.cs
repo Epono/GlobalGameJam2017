@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : NetworkBehaviour
 {
@@ -17,14 +18,22 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SerializeField]
 	private ScanScript scanScript;
 
-	private WarshipAttributes attributes;
+    [SerializeField]
+    private AudioClip rocketLaunchedClip;
+
+    [SerializeField]
+    private AudioClip rocketExplosedClip;
+
+	public WarshipAttributes attributes;
+
+    //pour le test de la fin
+    bool isAlive = true;
 
 	[SyncVar]
 	private int currentHealth;
 
     [SyncVar]
     private Vector2 forward = new Vector2(0,1);
-
 
 	private Vector2 aim;
 	private bool shootFire = false;
@@ -69,7 +78,6 @@ public class PlayerMovementScript : NetworkBehaviour
 		transform.Rotate(0, 0, -x);
 		transform.Translate(0, y, 0);
 
-
         if (aim.magnitude >= 0.5f)
         {
             forward = aim.normalized;
@@ -104,7 +112,12 @@ public class PlayerMovementScript : NetworkBehaviour
 			//gestion coolDown
 			scanScript.RunScan();
 		}
-	}
+        if (NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
+        {
+            Network.Disconnect();
+            SceneManager.LoadScene("YOUWIN");
+        }
+    }
 
     [Command]
     void CmdAim(Vector2 forward)
@@ -127,7 +140,9 @@ public class PlayerMovementScript : NetworkBehaviour
 		
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
-
+        
+        GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
+        
 		// Spawn the bullet on the Clients
 		NetworkServer.Spawn(bullet);
 
@@ -155,13 +170,18 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			currentHealth = 0;
 			Debug.Log("Dead!");
-			//LUCAS BOOLEAN ICI
+            //LUCAS BOOLEAN ICI
+            isAlive = false;
+            Network.Disconnect();
+            SceneManager.LoadScene("YOULOOSE");
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+
         Debug.Log("lolilol");
+
 		var hit = collision.gameObject;
 		if (hit.tag == "WARSHIP")
 		{
@@ -193,6 +213,6 @@ public class PlayerMovementScript : NetworkBehaviour
 	{
 		yield return new WaitForSeconds(0.5f);
 		_canFire = true;
-		yield return null;
+        yield return null;
 	}
 }

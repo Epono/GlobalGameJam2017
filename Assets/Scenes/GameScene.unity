@@ -91,6 +91,53 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &19519500
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.72461605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0818788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9.220703
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090285043097070, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 65c3422cfb8be544cbb45ec261aad4a5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!82 &19519501 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82484883067787344, guid: 65c3422cfb8be544cbb45ec261aad4a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 19519500}
 --- !u!1 &56397453
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,24 +250,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &201236170 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1780347301896434, guid: 6b5bdfaed7acdad43875bcb91bee9043,
-    type: 2}
-  m_PrefabInternal: {fileID: 1296555431}
---- !u!114 &201236171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 201236170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3917264a349c4a84d88aa1706e518462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonsExitGame:
-  - {fileID: 1722508805}
 --- !u!1 &275096488
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +575,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &450613425
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.72461605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0818788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9.220703
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197480869349300, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0f201e2d87806c34d9130b7a87e63ce7, type: 2}
+  m_IsPrefabParent: 0
+--- !u!82 &450613426 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82542115302841820, guid: 0f201e2d87806c34d9130b7a87e63ce7,
+    type: 2}
+  m_PrefabInternal: {fileID: 450613425}
 --- !u!1 &506209767
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +1033,7 @@ GameObject:
   - component: {fileID: 695118315}
   - component: {fileID: 695118314}
   - component: {fileID: 695118313}
+  - component: {fileID: 695118318}
   m_Layer: 5
   m_Name: Button Return
   m_TagString: Untagged
@@ -1108,6 +1185,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695118311}
+--- !u!114 &695118318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695118311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &704571531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1728,7 @@ GameObject:
   - component: {fileID: 1037413133}
   - component: {fileID: 1037413132}
   - component: {fileID: 1037413131}
+  - component: {fileID: 1037413136}
   m_Layer: 5
   m_Name: Button Return
   m_TagString: Untagged
@@ -1755,6 +1880,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037413129}
+--- !u!114 &1037413136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037413129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1055137513
 Prefab:
   m_ObjectHideFlags: 0
@@ -1794,10 +1966,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114011696762754114, guid: 24ce6652349e8f3408b49c9389d5ab42,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114542000810642110, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 24ce6652349e8f3408b49c9389d5ab42, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1055137514 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114252177934357246, guid: 24ce6652349e8f3408b49c9389d5ab42,
+    type: 2}
+  m_PrefabInternal: {fileID: 1055137513}
+  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 --- !u!1 &1102396086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,9 +2450,46 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114416841352528216, guid: 6b5bdfaed7acdad43875bcb91bee9043,
+        type: 2}
+      propertyPath: ppts
+      value: 
+      objectReference: {fileID: 114562294608296236, guid: 27dd8ba30474be14699afb470055bb0e,
+        type: 2}
+    - target: {fileID: 114416841352528216, guid: 6b5bdfaed7acdad43875bcb91bee9043,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1055137514}
+    - target: {fileID: 1780347301896434, guid: 6b5bdfaed7acdad43875bcb91bee9043, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b5bdfaed7acdad43875bcb91bee9043, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1296555432 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1780347301896434, guid: 6b5bdfaed7acdad43875bcb91bee9043,
+    type: 2}
+  m_PrefabInternal: {fileID: 1296555431}
+--- !u!114 &1296555433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1296555432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3917264a349c4a84d88aa1706e518462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonsExitGame:
+  - {fileID: 1722508805}
+  hostButton: {fileID: 0}
+  joinButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  creditsButton: {fileID: 0}
 --- !u!1 &1368938716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,6 +3306,7 @@ GameObject:
   - component: {fileID: 1671483493}
   - component: {fileID: 1671483492}
   - component: {fileID: 1671483491}
+  - component: {fileID: 1671483496}
   m_Layer: 5
   m_Name: Button Options
   m_TagString: Untagged
@@ -3237,6 +3458,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1671483489}
+--- !u!114 &1671483496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671483489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1680696824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,6 +3596,7 @@ GameObject:
   - component: {fileID: 1722508805}
   - component: {fileID: 1722508804}
   - component: {fileID: 1722508803}
+  - component: {fileID: 1722508808}
   m_Layer: 5
   m_Name: Button Exit Game
   m_TagString: Untagged
@@ -3433,7 +3702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201236171}
+      - m_Target: {fileID: 1296555433}
         m_MethodName: OnExitGame
         m_Mode: 1
         m_Arguments:
@@ -3479,6 +3748,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722508801}
+--- !u!114 &1722508808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722508801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1741295169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,6 +4079,7 @@ GameObject:
   - component: {fileID: 2036683893}
   - component: {fileID: 2036683892}
   - component: {fileID: 2036683891}
+  - component: {fileID: 2036683895}
   m_Layer: 5
   m_Name: Button Options
   m_TagString: Untagged
@@ -3891,6 +4208,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2036683889}
+--- !u!114 &2036683895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036683889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2036987674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +4268,7 @@ GameObject:
   - component: {fileID: 2036987678}
   - component: {fileID: 2036987677}
   - component: {fileID: 2036987676}
+  - component: {fileID: 2036987681}
   m_Layer: 5
   m_Name: Button Exit Party
   m_TagString: Untagged
@@ -4009,9 +4374,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201236171}
-        m_MethodName: OnJoinGame
-        m_Mode: 5
+      - m_Target: {fileID: 1296555433}
+        m_MethodName: OnExitParty
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4055,6 +4420,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2036987674}
+--- !u!114 &2036987681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036987674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 450613426}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19519501}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2063316583
 GameObject:
   m_ObjectHideFlags: 0
