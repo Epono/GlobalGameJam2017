@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.SceneManagement;
-=======
->>>>>>> dddd7fdce5b0935c5d8008dfe8f97032f64f66a6
+
+
 
 public class PlayerMovementScript : NetworkBehaviour
 {
@@ -21,14 +20,13 @@ public class PlayerMovementScript : NetworkBehaviour
 	[SerializeField]
 	private ScanScript scanScript;
 
-<<<<<<< HEAD
-	public WarshipAttributes attributes;
+
+	
 
     //pour le test de la fin
     bool isAlive = true;
-=======
+
 	private WarshipAttributes attributes;
->>>>>>> dddd7fdce5b0935c5d8008dfe8f97032f64f66a6
 
 	[SyncVar]
 	private int currentHealth;
@@ -39,57 +37,7 @@ public class PlayerMovementScript : NetworkBehaviour
 	private bool shootSonar = false;
 	private bool _canFire = true;
 
-    
 
-
-    float  x = 0.0f;
-	public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
-	
-	void Start()
-	{
-        
-        //ID = new NetworkSceneId();
-
-        attributes = script.Attributes;
-		currentHealth = attributes.HealthPoint;
-	}
-
-	public void readInfo(InfoSend infos)
-	{
-		x = infos.move;
-		aim = infos.aimAngle;
-		shootFire  = infos.inputListing[Action.FIRE];
-		shootSonar = infos.inputListing[Action.WAVESHOT];
-	}
-
-	void Update()
-	{
-		//transform.Translate(0, MovementMagicNumber, 0);// attributes.MoveSpeed * Time.deltaTime * 3.0f, 0);
-		if (!isLocalPlayer)
-		{
-			return;
-		}
-
-		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-		var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-
-		
-
-		transform.Rotate(0, 0, -x);
-		transform.Translate(0, y, 0);
-		
-
-		if(aim.magnitude >= 0.5f)
-		{
-			forward = aim.normalized;
-			forward.y *= -1;
-			bulletSpawn.position = transform.position;
-			bulletSpawn.position += new Vector3(forward.x, forward.y, 0)*0.5f;
-		}
-		
-
-<<<<<<< HEAD
-=======
 	float  x = 0.0f;
 	public float MovementMagicNumber = 0.05f; // value for Input.GetAxis("Vertical") * Time.deltaTime * 3.0f; needed hard coded
 	
@@ -133,7 +81,6 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 		
 
->>>>>>> dddd7fdce5b0935c5d8008dfe8f97032f64f66a6
 		if (shootFire)
 		{
 			if( _canFire )
@@ -153,15 +100,13 @@ public class PlayerMovementScript : NetworkBehaviour
 			//gestion coolDown
 			scanScript.RunScan();
 		}
-<<<<<<< HEAD
 
-        if(NetworkServer.localConnections.Count == 1)
+        if(NetworkServer.localConnections.Count == 1 && Time.timeSinceLevelLoad > 15.0f)
         {
             Network.Disconnect();
             SceneManager.LoadScene("YOUWIN");
         }
-=======
->>>>>>> dddd7fdce5b0935c5d8008dfe8f97032f64f66a6
+
 	}
 
 	// This [Command] code is called on the Client …
@@ -204,16 +149,12 @@ public class PlayerMovementScript : NetworkBehaviour
 		{
 			currentHealth = 0;
 			Debug.Log("Dead!");
-<<<<<<< HEAD
+
             //LUCAS BOOLEAN ICI
             isAlive = false;
             Network.Disconnect();
             SceneManager.LoadScene("YOULOOSE");
             
-
-=======
-			//LUCAS BOOLEAN ICI
->>>>>>> dddd7fdce5b0935c5d8008dfe8f97032f64f66a6
 		}
 	}
 
@@ -240,8 +181,10 @@ public class PlayerMovementScript : NetworkBehaviour
 				if (health.HealthPoint <= 0)
 				{
 					Destroy(hit);
-					//change sprit of islands
-				}
+                    //change sprit of islands
+                    Network.Disconnect();
+                    SceneManager.LoadScene("YOULOOSE");
+                }
 			}
 		}
 
