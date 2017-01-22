@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 61593490734791588}
   - component: {fileID: 114225254061727008}
   - component: {fileID: 82201691458175282}
+  - component: {fileID: 50147035238016102}
   m_Layer: 0
   m_Name: Warship
   m_TagString: WARSHIP
@@ -408,6 +409,26 @@ Transform:
   m_Father: {fileID: 4616812422176274}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50147035238016102
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242380427817638}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
 --- !u!50 &50266415725672604
 Rigidbody2D:
   serializedVersion: 4

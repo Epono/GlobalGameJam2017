@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,6 +22,9 @@ public class PlayerMovementScript : NetworkBehaviour
 
     [SerializeField]
     private AudioClip rocketLaunchedClip;
+
+    [SerializeField]
+    private HealthUI healthUIScript;
 
     [SerializeField]
     private AudioClip rocketExplosedClip;
@@ -55,6 +57,11 @@ public class PlayerMovementScript : NetworkBehaviour
     {
         attributes = script.Attributes;
         currentHealth = attributes.HealthPoint;
+<<<<<<< HEAD
+=======
+        healthUIScript = FindObjectOfType<HealthUI>();
+        // Debug.LogError(NetworkServer.connections.Count);
+>>>>>>> de30bb12de70942bd39f1e542fe2a57eeed7c75e
     }
 
     public void readInfo(InfoSend infos)
@@ -72,12 +79,10 @@ public class PlayerMovementScript : NetworkBehaviour
             yield return new WaitForSeconds(0.5f);
             if (loose && isLocalPlayer)
             {
-                Debug.LogError("LOOSE");
                 SceneManager.LoadScene("YOULOOSE");
             }
             if (loose && !isLocalPlayer)
             {
-                Debug.LogError("WIN");
                 SceneManager.LoadScene("YOUWIN");
             }
         }
@@ -85,12 +90,10 @@ public class PlayerMovementScript : NetworkBehaviour
         {
             if (loose && isLocalPlayer)
             {
-                Debug.LogError("LOOSE");
                 SceneManager.LoadScene("YOULOOSE");
             }
             if (loose && !isLocalPlayer)
             {
-                Debug.LogError("WIN");
                 SceneManager.LoadScene("YOUWIN");
             }
         }
@@ -138,12 +141,16 @@ public class PlayerMovementScript : NetworkBehaviour
 			if( _canFire )
 			{
 				_canFire = false;
-				if( attributes.Ammunition > 0 )
-				{
-					CmdFire(forward);
-					attributes.Ammunition--;
-				}
-				StartCoroutine("OnBulletFired");
+			    if (attributes.Ammunition > 0)
+			    {
+			        CmdFire(forward);
+			        attributes.Ammunition--;
+			    }
+			    else
+			    {
+                    SoundsSingletonScript.playClip(AudioClips.noAmmosClip);
+                }
+                StartCoroutine("OnBulletFired");
 			}
 		}
 
@@ -153,9 +160,6 @@ public class PlayerMovementScript : NetworkBehaviour
 			scanScript.RunScan();
             GetComponent<AudioSource>().PlayOneShot(sonarLaunchedClip);
         }
-
-        Debug.LogError(currentHealth);
-
     }
 	
     [Command]
@@ -180,10 +184,10 @@ public class PlayerMovementScript : NetworkBehaviour
 		// Add velocity to the bullet
 		bullet.GetComponent<Rigidbody2D>().velocity = forward * 6;
         
-        GetComponent<AudioSource>().PlayOneShot(rocketLaunchedClip);
-        
-		// Spawn the bullet on the Clients
-		NetworkServer.Spawn(bullet);
+        SoundsSingletonScript.playClip(AudioClips.rocketLaunchedClip);
+
+        // Spawn the bullet on the Clients
+        NetworkServer.Spawn(bullet);
 
 		// Destroy the bullet after 2 seconds
 		Destroy(bullet, 2.0f);
@@ -203,8 +207,11 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 
 		currentHealth -= amount;
-		attributes.HealthPoint -= currentHealth;
-		Debug.Log(currentHealth);
+		attributes.HealthPoint  = currentHealth;
+
+        healthUIScript.UpdateHealth(currentHealth, attributes.MaxHealth);
+
+        Debug.Log(currentHealth);
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
@@ -218,13 +225,14 @@ public class PlayerMovementScript : NetworkBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+        SoundsSingletonScript.playClip(AudioClips.warshipCollisionClip);
 
         Debug.Log("lolilol");
 
 		var hit = collision.gameObject;
 		if (hit.tag == "WARSHIP")
 		{
-			var health = hit.GetComponent<PlayerMovementScript>();
+            var health = hit.GetComponent<PlayerMovementScript>();
 			if (health != null)
 			{
 				health.TakeDamage(attributes.CollisionDamage);
@@ -233,7 +241,7 @@ public class PlayerMovementScript : NetworkBehaviour
 		}
 		else if (hit.tag == "ISLAND")
 		{
-			var health = hit.GetComponent<IsleAttribute>();
+            var health = hit.GetComponent<IsleAttribute>();
 			if (health != null)
 			{
 				health.HealthPoint--;
