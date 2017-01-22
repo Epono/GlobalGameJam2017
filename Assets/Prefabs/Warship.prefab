@@ -447,7 +447,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248867771195846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -577,6 +577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _warshipTransform: {fileID: 4616812422176274}
   _scanCollider: {fileID: 114682384789836266}
+  _sprite: {fileID: 212751858570054886}
+  _collider: {fileID: 60394191292229536}
   _angle: 0
   _target: {fileID: 4523800669474848}
   _spawnRocket: {fileID: 4241359820714944}
@@ -700,6 +702,7 @@ MonoBehaviour:
   _scanTransform: {fileID: 4386152465198834}
   _discoveryPoint: {fileID: 1562810913133746, guid: ff0a660393e5a9d49a915d2413f8d752,
     type: 2}
+  _warshipTransform: {fileID: 4616812422176274}
   speed: 1
   timeScan: 3.5
   DoScan: 0
@@ -849,7 +852,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487426523941674}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
