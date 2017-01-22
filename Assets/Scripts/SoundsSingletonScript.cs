@@ -11,7 +11,8 @@ public enum AudioClips {
     warshipHurtClip,
     warshipCollisionClip,
     warshipEmergingClip,
-    warshipDivingClip
+    warshipDivingClip,
+    noAmmosClip
 }
 
 public class SoundsSingletonScript : MonoBehaviour {
@@ -28,6 +29,7 @@ public class SoundsSingletonScript : MonoBehaviour {
     static AudioClip warshipCollisionClip;
     static AudioClip warshipEmergingClip;
     static AudioClip warshipDivingClip;
+    static AudioClip noAmmosClip;
 
     // Game Instance Singleton
     public static SoundsSingletonScript Instance
@@ -64,6 +66,8 @@ public class SoundsSingletonScript : MonoBehaviour {
 
         warshipEmergingClip = (AudioClip)Resources.Load("Audio/Sounds/warship_emerging");
         warshipDivingClip = (AudioClip)Resources.Load("Audio/Sounds/warship_diving");
+
+        noAmmosClip = (AudioClip)Resources.Load("Audio/Sounds/no_ammos");
     }
 
     public static void playClip(AudioClips audioClip) {
@@ -91,6 +95,9 @@ public class SoundsSingletonScript : MonoBehaviour {
                 break;
             case AudioClips.warshipDivingClip:
                 audioSource.clip = warshipDivingClip;
+                break;
+            case AudioClips.noAmmosClip:
+                audioSource.clip = noAmmosClip;
                 break;
         }
         // Tentative pour jouer 2 sons pendant la même frame
