@@ -135,6 +135,10 @@ Prefab:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1960256476}
+    - target: {fileID: 1780347301896434, guid: 6b5bdfaed7acdad43875bcb91bee9043, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b5bdfaed7acdad43875bcb91bee9043, type: 2}
   m_IsPrefabParent: 0
@@ -185,9 +189,63 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95197482306114906, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bc722775c3445fb488919fa81eb11329, type: 2}
+    - target: {fileID: 212999216268687136, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905199627019568, guid: d083b4d9ef0dd4c4ca318ff7e0865a59, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d083b4d9ef0dd4c4ca318ff7e0865a59, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &580544374 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1669136723734410, guid: d083b4d9ef0dd4c4ca318ff7e0865a59,
+    type: 2}
+  m_PrefabInternal: {fileID: 150895276}
+--- !u!212 &580544380
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580544374}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5f057bc407067804e8a8e14dd3ae9803, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &745439086
 Prefab:
   m_ObjectHideFlags: 0
@@ -226,6 +284,10 @@ Prefab:
     - target: {fileID: 4084581348804702, guid: ff0a660393e5a9d49a915d2413f8d752, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562810913133746, guid: ff0a660393e5a9d49a915d2413f8d752, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff0a660393e5a9d49a915d2413f8d752, type: 2}

@@ -101,7 +101,7 @@ public class WarshipScript : MonoBehaviour
 	void Update()
 	{
 		//Mettre dans l'event getDamage
-		animator.SetBool("isAlive", false);
+		//animator.SetBool("isAlive", false);
 		if( ShowViewZone )
 		{
 			StartCoroutine("EnableViewZone");
